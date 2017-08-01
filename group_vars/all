@@ -1,2 +1,4 @@
 user:
   name: saxetz
+
+docker_compose_version: 1.15.0

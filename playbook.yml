@@ -3,3 +3,4 @@
 - hosts: localhost
   roles:
     - { role: sudo, tags: ['sudo'] }
+    - { role: docker, tags: ['docker'] }

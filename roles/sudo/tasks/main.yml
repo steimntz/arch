@@ -9,6 +9,13 @@
   tags:
     - sudo
 
+- name: Create a new ssh key
+  user:
+    name: saxetz
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+
 - name: Copy sudo configuration
   template: src=sudoers.j2 dest=/etc/sudoers mode=440 validate='visudo -cf %s'
   tags:
