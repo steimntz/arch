@@ -2,10 +2,10 @@
   pacman: name=zsh state=present
 
 - name: create prezto folder
-  file: path=/home/{{ user.name }} state=directory owner={{ user.name }}
+  file: path=/home/{{ user.name }} state=directory owner={{ user.name }} recurse=true
 
 - name: install prezto
-  git: repo=https://github.com/sorin-ionescu/prezto.git dest=/home/{{ user.name }}/.zprezto
+  git: repo=https://github.com/sorin-ionescu/prezto.git dest=/home/{{ user.name }}/.zprezto force=yes
 
 - name: get rid of existing ~/.zshrc
   file: path=/home/{{ user.name }}/.zshrc state=absent owner={{ user.name }}
@@ -16,10 +16,18 @@
   with_items:
     - zlogin
     - zlogout
-    - zpreztorc
     - zprofile
     - zshenv
     - zshrc
 
 - name: switch to Zsh
   user: name={{ user.name }} shell=/usr/bin/zsh
+
+- name: install fasd
+  pacman: name=fasd state=present
+
+- name: get rid of existing ~/.zpreztorc
+  file: path=/home/{{ user.name }}/.zpreztorc state=absent owner={{ user.name }}
+
+- name: copy my zprezto
+  template: src=.zpreztorc dest=/home/{{ user.name }}/.zpreztorc owner={{ user.name }}
