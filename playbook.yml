@@ -4,3 +4,4 @@
   roles:
     - { role: sudo, tags: ['sudo'] }
     - { role: docker, tags: ['docker'] }
+    - { role: zprezto }

@@ -1,0 +1,25 @@
+- name: install zsh
+  pacman: name=zsh state=present
+
+- name: create prezto folder
+  file: path=/home/{{ user.name }} state=directory owner={{ user.name }}
+
+- name: install prezto
+  git: repo=https://github.com/sorin-ionescu/prezto.git dest=/home/{{ user.name }}/.zprezto
+
+- name: get rid of existing ~/.zshrc
+  file: path=/home/{{ user.name }}/.zshrc state=absent owner={{ user.name }}
+
+- name: symlink new dotfiles
+  file: src=/home/{{ user.name }}/.zprezto/runcoms/{{ item }} dest=/home/{{ user.name }}/.{{ item }}
+        state=link owner={{ user.name }}
+  with_items:
+    - zlogin
+    - zlogout
+    - zpreztorc
+    - zprofile
+    - zshenv
+    - zshrc
+
+- name: switch to Zsh
+  user: name={{ user.name }} shell=/usr/bin/zsh
