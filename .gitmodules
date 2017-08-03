@@ -1,3 +1,6 @@
-[submodule "library/ansible-aur"]
-	path = library/ansible-aur
+[submodule "library/external_modules/ansible-aur"]
+	path = library/external_modules/ansible-aur
+	url = git://github.com/cdown/ansible-aur.git
+[submodule "library/external_modules/ansible-makepkg"]
+	path = library/external_modules/ansible-makepkg
 	url = https://github.com/pigmonkey/ansible-aur.git
