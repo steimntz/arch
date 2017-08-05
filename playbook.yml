@@ -2,8 +2,9 @@
 
 - hosts: localhost
   roles:
-          #    - { role: sudo, tags: ['sudo'] }
-          #    - { role: docker, tags: ['docker'] }
-          #    - { role: zprezto }
-          #    - { role: vim }
+    - { role: sudo, tags: ['sudo'] }
+    - { role: docker, tags: ['docker'] }
+    - { role: zprezto }
+    - { role: vim }
+    - { role: apps }
     - { role: xmonad }
