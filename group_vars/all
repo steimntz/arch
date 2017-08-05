@@ -6,3 +6,9 @@ docker_compose_version: 1.15.0
 computer:
   gpu:
     - xf86-video-ati
+
+apps:
+  default:
+    - rxvt-unicode
+  aur:
+    - firefox-dev
