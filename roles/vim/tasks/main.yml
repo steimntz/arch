@@ -1,6 +1,9 @@
 ---
-- name: Install Vim
-  pacman: name=vim state=present
+- name: Install Vim and dependencies
+  pacman: name={{ item }} state=present
+  with_items:
+    - vim
+    - the_silver_searcher
 
 - name: Create .vim directory with permission
   file: path=/home/{{ user.name }}/.vim state=directory owner={{ user.name }} recurse=true
