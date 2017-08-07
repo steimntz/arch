@@ -26,3 +26,14 @@
   with_items:
     - xmonad
     - xmonad-contrib
+
+- name: Create .xmonad directory with user permission
+  file: path=/home/{{ user.name }}/.xmonad state=directory owner={{ user.name }} recurse=true
+
+- name: Copy xmonad configurations
+  template: src=xmonad.j2 dest=/home/{{ user.name }}/.xmonad/xmonad.hs owner={{ user.name }}
+
+- name: Compile XMonad
+  shell: xmonad --recompile
+  become: yes
+  become_user: "{{ user.name }}"
