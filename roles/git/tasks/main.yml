@@ -1,3 +1,5 @@
 ---
-- name: Install vim
-  pacman: name=vim state=present
+- name: Add 'git lg' alias
+  shell: git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  become: yes
+  become_user: "{{ user.name }}"

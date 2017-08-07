@@ -5,6 +5,7 @@
     - { role: sudo, tags: ['sudo'] }
     - { role: docker, tags: ['docker'] }
     - { role: zprezto }
+    - { role: git }
     - { role: vim }
     - { role: apps }
     - { role: xmonad }
