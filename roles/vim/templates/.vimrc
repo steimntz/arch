@@ -15,6 +15,32 @@ Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 filetype plugin indent on
 
+"""""""""""""""""""""""""""""""""
 " Bindings
+"""""""""""""""""""""""""""""""""
+
 nmap <leader>f :Ag<SPACE>
 nmap <leader>p :NERDTreeToggle<CR>
+
+"\o | \O to insert a line below / above and return to normal mode
+nmap <leader>o o<esc>
+nmap <leader>O O<esc>
+
+" map k/j to next/prev tab
+nmap <S-k> gt
+nmap <S-j> gT
+
+" Remove highlighted search
+nmap <leader><space> :nohl<cr>
+
+"""""""""""""""""""""""""""""""""
+" Basic Configuration
+"""""""""""""""""""""""""""""""""
+set novb                " no bells please
+set showmode
+set ignorecase
+set smartcase           " Case insensitive search with lowercase terms, sensitive with uppercase
+set hlsearch            " highlight search results
+set gdefault            " default to global substitution, without having to put the /g at the end
+set relativenumber      " show relative line numbers
+set number              " but show the current linenum at the center
