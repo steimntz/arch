@@ -31,7 +31,7 @@
   file: path=/home/{{ user.name }}/.xmonad state=directory owner={{ user.name }} recurse=true
 
 - name: Copy xmonad configurations
-  template: src=xmonad.j2 dest=/home/{{ user.name }}/.xmonad/xmonad.hs owner={{ user.name }}
+  template: src=xmonad.hs dest=/home/{{ user.name }}/.xmonad/xmonad.hs owner={{ user.name }}
 
 - name: Compile XMonad
   shell: xmonad --recompile
