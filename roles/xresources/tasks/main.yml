@@ -1,2 +1,0 @@
-- name: Configure .Xresources
-  template: src="Xresources" dest="/home/{{ user.name }}/.Xresources" owner={{ user.name }}

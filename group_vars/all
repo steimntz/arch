@@ -12,6 +12,8 @@ apps:
     - rxvt-unicode
   aur:
     - firefox-dev
+    - ttf-mac-fonts
+    - nerd-fonts-complete
 
 firefox:
   extensions:
