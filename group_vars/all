@@ -12,3 +12,9 @@ apps:
     - rxvt-unicode
   aur:
     - firefox-dev
+
+firefox:
+  extensions:
+    - url: https://github.com/akhodakivskiy/VimFx/releases/download/v0.20.10/VimFx.xpi
+      filename: vimfx
+      checksum: 9bc62b3e8816b6b3bdc2bd6aba8696a59bc623f95dd8b598b1de55526d69d21e
