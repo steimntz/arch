@@ -30,4 +30,4 @@
   file: path=/home/{{ user.name }}/.zpreztorc state=absent owner={{ user.name }}
 
 - name: copy my zprezto
-  template: src=.zpreztorc dest=/home/{{ user.name }}/.zpreztorc owner={{ user.name }}
+  template: src=zpreztorc dest=/home/{{ user.name }}/.zpreztorc owner={{ user.name }}

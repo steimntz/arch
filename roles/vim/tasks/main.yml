@@ -17,7 +17,7 @@
     dest: "/home/{{ user.name }}/.vim/bundle/Vundle.vim"
 
 - name: Configure .vimrc
-  template: src=".vimrc" dest="/home/{{ user.name }}/.vimrc" owner={{ user.name }}
+  template: src="vimrc" dest="/home/{{ user.name }}/.vimrc" owner={{ user.name }}
 
 - name: Run PluginInstall
   shell: vim +PluginInstall +qall
