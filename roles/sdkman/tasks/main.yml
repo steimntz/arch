@@ -24,11 +24,11 @@
   become_user: "{{ user.name }}"
 
 - name: Installing Gradle
-  command: zsh -ilc "type sdk install gradle"
+  command: zsh -ilc "sdk install gradle"
   become: yes
   become_user: "{{ user.name }}"
 
 - name: Installing Java 
-  command: zsh -ilc "type sdk install java"
+  command: zsh -ilc "sdk install java"
   become: yes
   become_user: "{{ user.name }}"
