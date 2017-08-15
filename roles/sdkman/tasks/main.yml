@@ -1,0 +1,34 @@
+---
+#
+# Script based on https://gist.github.com/emilio2hd/c910661bff37246bee17
+#
+- name: Check if sdkman is installed
+  shell: test -d {{home}}/.sdkman/ && echo "yes" || echo "no"
+  register: is_sdkman_installed
+
+- name: Download SDKMAN!
+  when: is_sdkman_installed.stdout == "no"
+  get_url: url={{sdkman_script_install_url}} dest=/tmp/sdkman
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Install SDKMAN!
+  when: is_sdkman_installed.stdout == "no"
+  script: /tmp/sdkman
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Add sdkman in .zshrc
+  lineinfile: dest={{home}}/.zshrc regexp="\/.sdkman/bin\/sdkman\-init\.sh" line='[[ -s "{{home}}/.sdkman/bin/sdkman-init.sh" ]] && source "{{home}}/.sdkman/bin/sdkman-init.sh"'
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Installing Gradle
+  command: zsh -ilc "type sdk install gradle"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Installing Java 
+  command: zsh -ilc "type sdk install java"
+  become: yes
+  become_user: "{{ user.name }}"

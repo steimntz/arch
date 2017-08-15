@@ -8,5 +8,6 @@
     - { role: git }
     - { role: vim }
     - { role: apps }
+    - { role: sdkman }
     - { role: xdefault }
     - { role: xmonad }

@@ -1,7 +1,9 @@
 user:
   name: saxetz
 
+home: /home/{{ user.name }}
 docker_compose_version: 1.15.0
+sdkman_script_install_url: http://get.sdkman.io
 
 computer:
   gpu:
@@ -11,6 +13,8 @@ apps:
   default:
     - rxvt-unicode
     - gvim
+    - zip
+    - unzip
   aur:
     - firefox-dev
     - ttf-mac-fonts
