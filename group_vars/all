@@ -10,6 +10,7 @@ computer:
 apps:
   default:
     - rxvt-unicode
+    - gvim
   aur:
     - firefox-dev
     - ttf-mac-fonts
