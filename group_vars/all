@@ -15,6 +15,9 @@ apps:
     - gvim
     - zip
     - unzip
+    - pulseaudio
+    - pulseaudio-alsa
+    - alsa-utils
   aur:
     - firefox-dev
     - ttf-mac-fonts
