@@ -1,3 +1,6 @@
 *.retry
 test.yml
 *.swp
+*.swo
+roles/xmonad/**/*.o
+roles/xmonad/**/*.hi
