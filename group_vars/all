@@ -18,6 +18,8 @@ apps:
     - pulseaudio
     - pulseaudio-alsa
     - alsa-utils
+    - dzen2
+    - xorg-xrandr
   aur:
     - firefox-dev
     - ttf-mac-fonts
