@@ -2,11 +2,11 @@
 
 - hosts: localhost
   roles:
-    - { role: sudo, tags: ['sudo'] }
+    - { role: sudo,   tags: ['sudo'] }
     - { role: docker, tags: ['docker'] }
     - { role: zprezto }
     - { role: git }
-    - { role: vim }
+    - { role: vim,    tags: ['osx'] }
     - { role: apps }
     - { role: sdkman }
     - { role: xdefault }
