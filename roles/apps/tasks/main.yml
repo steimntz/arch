@@ -1,10 +1,5 @@
 ---
 - name: Install default apps
-  pacman: name={{ item }} state=present
+  pacman: name="{{ item }}" state=present
   with_items:
-    - "{{ apps.default }}"
-
-- name: Install aur default apps
-  makepkg: name={{ item }} user={{ user.name }}
-  with_items:
-    - "{{ apps.aur }}"
+    - "[ {{ apps.default }} ]"
