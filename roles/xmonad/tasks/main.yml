@@ -8,14 +8,6 @@
 - name: Make directory /home/{{ user.name }}/aur
   file: name=/home/{{ user.name }}/aur state=directory owner={{ user.name }}
 
-- name: Install cower.
-  makepkg: name=cower user={{ user.name }} skip_pgp=true
-  become: yes
-  become_user: "{{ user.name }}"
-
-- name: Install pacaur.
-  makepkg: name=pacaur user={{ user.name }}
- 
 - name: Install driver
   pacman: name={{ item }} state=present
   with_items:
