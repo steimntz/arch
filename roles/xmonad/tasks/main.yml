@@ -11,18 +11,17 @@
 - name: Install driver
   pacman: name={{ item }} state=present
   with_items:
-    - "{{ computer.gpu  }}"
+    - "[{{ computer.gpu  }}]"
 
 - name: Install XMonad
-  pacman: name={{ item }} state=present
-  with_items:
-    - xmonad
-    - xmonad-contrib
+  pacman: 
+    pkg:
+      - xmonad
+      - xmonad-contrib
+    state: present
 
 - name: Install XMonad dependecies.
-  pacman: name={{ item }} state=present
-  with_items:
-    - rofi
+  pacman: name=rofi state=present
 
 - name: Create .xmonad directory with user permission
   file: path=/home/{{ user.name }}/.xmonad/lib/Config state=directory owner={{ user.name }} recurse=true

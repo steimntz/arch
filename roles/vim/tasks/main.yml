@@ -1,9 +1,10 @@
 ---
 - name: Install Vim and dependencies
-  pacman: name={{ item }} state=present
-  with_items:
-    - vim
-    - the_silver_searcher
+  pacman:
+    pkg: 
+      - vim
+      - the_silver_searcher
+    state: present
   when: ansible_os_family == "Archlinux"
 
 - name: Install Vim and dependencies
