@@ -24,11 +24,11 @@
   become_user: "{{ user.name }}"
 
 - name: Installing Gradle
-  command: zsh -ilc "sdk install gradle"
+  command: zsh -ilc "[[ -s '/home/steimntz/.sdkman/bin/sdkman-init.sh' ]] && source '/home/steimntz/.sdkman/bin/sdkman-init.sh' && sdk install gradle"
   become: yes
   become_user: "{{ user.name }}"
 
 - name: Installing Java 
-  command: zsh -ilc "sdk install java"
+  command: zsh -ilc "[[ -s '/home/steimntz/.sdkman/bin/sdkman-init.sh' ]] && source '/home/steimntz/.sdkman/bin/sdkman-init.sh' && sdk install java"
   become: yes
   become_user: "{{ user.name }}"
