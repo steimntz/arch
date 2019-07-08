@@ -35,7 +35,7 @@
 - name: test kubectl alias
   shell: grep 'alias k=kubectl' /home/{{ user.name }}/.zshrc
   register: test_alias
-  ignore_errors: True
+  ignore_errors: true
 
 - name: add kubectl completion and alias
   lineinfile:
