@@ -12,7 +12,6 @@ computer:
 apps:
   default:
     - rxvt-unicode
-    - gvim
     - zip
     - unzip
     - pulseaudio
