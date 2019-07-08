@@ -31,3 +31,16 @@
 
 - name: copy my zprezto
   template: src=zpreztorc dest=/home/{{ user.name }}/.zpreztorc owner={{ user.name }}
+
+- name: test kubectl alias
+  shell: grep 'alias k=kubectl' /home/{{ user.name }}/.zshrc
+  register: test_alias
+  ignore_errors: True
+
+- name: add kubectl completion and alias
+  lineinfile:
+    path: /home/{{ user.name }}/.zshrc
+    line: | 
+      source <(kubectl completion zsh)'
+      alias ku=kubectl
+  when: test_alias is failed
