@@ -26,6 +26,7 @@ apps:
     - pavucontrol
     - kubectl
     - xorg-xinput
+    - openssh
 
 firefox:
   extensions:
