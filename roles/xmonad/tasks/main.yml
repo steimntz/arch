@@ -36,6 +36,7 @@
   template: src={{ item }} dest=/home/{{ user.name }}/.xmonad/lib/{{ item }} owner={{ user.name }}
   with_items:
     - Config/Mappings.hs
+    - Config/Layout.hs
 
 - name: Copy my xinitrc
   template: src=xinitrc dest=/home/{{ user.name }}/.xinitrc owner={{ user.name }}
