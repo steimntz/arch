@@ -12,3 +12,4 @@
     - { role: xdefault, tags: ['everything', 'never', 'xorgs'] }
     - { role: xmonad,   tags: ['everything', 'never', 'gui'] }
     - { role: scroll,   tags: ['everything', 'never', 'scroll'] }
+    - { role: sdkman,   tags: ['everything', 'never', 'java']  }
