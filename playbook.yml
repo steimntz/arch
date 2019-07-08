@@ -11,3 +11,4 @@
     - { role: fonts,    tags: ['everything', 'never', 'fonts']  }
     - { role: xdefault, tags: ['everything', 'never', 'xorgs'] }
     - { role: xmonad,   tags: ['everything', 'never', 'gui']  }
+    - { role: scroll,   tags: ['everything', 'never', 'scroll']  }

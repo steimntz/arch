@@ -25,6 +25,7 @@ apps:
     - firefox
     - pavucontrol
     - kubectl
+    - xorg-xinput
 
 firefox:
   extensions:
