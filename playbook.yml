@@ -8,5 +8,6 @@
     - { role: git,      tags: ['everything', 'never', 'git'] }
     - { role: vim,      tags: ['everything', 'never', 'osx'] }
     - { role: apps,     tags: ['everything', 'never', 'apps'] }
+    - { role: fonts,    tags: ['everything', 'never', 'fonts']  }
     - { role: xdefault, tags: ['everything', 'never', 'xorgs'] }
     - { role: xmonad,   tags: ['everything', 'never', 'gui']  }
