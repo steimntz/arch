@@ -2,12 +2,11 @@
 
 - hosts: localhost
   roles:
-    - { role: sudo,   tags: ['sudo'] }
-    - { role: docker, tags: ['docker'] }
-    - { role: zprezto }
-    - { role: git }
-    - { role: vim,    tags: ['osx'] }
-    - { role: apps }
-    - { role: sdkman }
-    - { role: xdefault }
-    - { role: xmonad }
+    - { role: sudo,     tags: ['everything', 'never', 'sudo'] }
+    - { role: docker,   tags: ['everything', 'never', 'docker'] }
+    - { role: zprezto,  tags: ['everything', 'never', 'zsh'] }
+    - { role: git,      tags: ['everything', 'never', 'git'] }
+    - { role: vim,      tags: ['everything', 'never', 'osx'] }
+    - { role: apps,     tags: ['everything', 'never', 'apps'] }
+    - { role: xdefault, tags: ['everything', 'never', 'xorgs'] }
+    - { role: xmonad,   tags: ['everything', 'never', 'gui']  }
