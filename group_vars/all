@@ -11,6 +11,9 @@ computer:
 
 apps:
   default:
+    - ttf-dejavu
+    - ttf-liberation
+    - noto-fonts
     - rxvt-unicode
     - zip
     - unzip
@@ -20,6 +23,8 @@ apps:
     - dzen2
     - xorg-xrandr
     - firefox
+    - pavucontrol
+    - kubectl
 
 firefox:
   extensions:
