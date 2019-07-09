@@ -1,47 +1,48 @@
 ---
-- name: Install Xorg Server.
+- name: install Xorg Server.
   pacman: name=xorg-server state=present
 
-- name: Install Xorg Xinit.
+- name: install Xorg Xinit.
   pacman: name=xorg-xinit state=present
 
-- name: Make directory /home/{{ user.name }}/aur
+- name: make directory /home/{{ user.name }}/aur
   file: name=/home/{{ user.name }}/aur state=directory owner={{ user.name }}
 
-- name: Install driver
+- name: install driver
   pacman: name={{ item }} state=present
   with_items:
     - "[{{ computer.gpu  }}]"
 
-- name: Install XMonad
+- name: install XMonad
   pacman: 
     pkg:
       - xmonad
       - xmonad-contrib
     state: present
 
-- name: Install XMonad dependecies.
+- name: install XMonad dependecies.
   pacman: name=rofi state=present
 
-- name: Create .xmonad directory with user permission
+- name: create .xmonad directory with user permission
   file: path=/home/{{ user.name }}/.xmonad/lib/Config state=directory owner={{ user.name }} recurse=true
 
-- name: Copy my xmonad main file
+- name: copy my xmonad main file
   template: src=xmonad.hs dest=/home/{{ user.name }}/.xmonad/xmonad.hs owner={{ user.name }}
 
-- name: Create my xmonad configurations directory with user permission
+- name: create my xmonad configurations directory with user permission
   file: path=/home/{{ user.name }}/.xmonad/lib/Config state=directory owner={{ user.name }} recurse=true
 
-- name: Copy my xmonad configurations
+- name: copy my xmonad configurations
   template: src={{ item }} dest=/home/{{ user.name }}/.xmonad/lib/{{ item }} owner={{ user.name }}
   with_items:
     - Config/Mappings.hs
     - Config/Layout.hs
+    - Config/StartUpHooks.hs
 
 - name: Copy my xinitrc
   template: src=xinitrc dest=/home/{{ user.name }}/.xinitrc owner={{ user.name }}
 
-- name: Compile XMonad
+- name: compile XMonad
   shell: xmonad --recompile
   become: yes
   become_user: "{{ user.name }}"
