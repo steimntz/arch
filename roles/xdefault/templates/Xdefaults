@@ -26,6 +26,7 @@ URxvt.font: xft:DejaVu Sans Mono:size=10,xft:PowerlineSymbols:pixelsize=12,xft:N
 URxvt.scrollTtyKeypress: true
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.externalBorder: 0
+URxvt.scrollBar: false
 
 URxvt.letterSpace: -1
 
