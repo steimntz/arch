@@ -41,6 +41,6 @@
   lineinfile:
     path: /home/{{ user.name }}/.zshrc
     line: | 
-      source <(kubectl completion zsh)'
+      source <(kubectl completion zsh)
       alias ku=kubectl
   when: test_alias is failed
