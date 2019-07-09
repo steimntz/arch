@@ -44,3 +44,12 @@
       source <(kubectl completion zsh)
       alias ku=kubectl
   when: test_alias is failed
+
+- name: create a new ssh key
+  user:
+    name: '{{ user.name }}'
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+  become: yes
+  become_user: '{{ user.name }}'
