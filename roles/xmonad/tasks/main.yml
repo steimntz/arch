@@ -5,8 +5,8 @@
 - name: install Xorg Xinit.
   pacman: name=xorg-xinit state=present
 
-- name: make directory /home/{{ user.name }}/aur
-  file: name=/home/{{ user.name }}/aur state=directory owner={{ user.name }}
+- name: make directory /home/{{ user.name }}/screenshots
+  file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }}
 
 - name: install driver
   pacman: name={{ item }} state=present
