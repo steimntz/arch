@@ -32,6 +32,7 @@ apps:
     - scrot
     - cups
     - ghostscript
+    - xscreensaver
 
 firefox:
   extensions:

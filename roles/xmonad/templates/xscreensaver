@@ -1,0 +1,11 @@
+timeout:	1:00:00
+cycle:		0:01:00
+lock:		False
+lockTimeout:	0:00:00
+passwdTimeout:	0:00:10
+fade:		True
+unfade:		False
+fadeSeconds:	0:00:03
+fadeTicks:	20
+dpmsEnabled:	True
+dpmsOff:	4:00:00
