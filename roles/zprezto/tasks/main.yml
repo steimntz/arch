@@ -45,6 +45,19 @@
       alias ku=kubectl
   when: test_alias is failed
 
+- name: test default editor
+  shell: grep 'EDITOR' /home/{{ user.name }}/.zshrc
+  register: test_editor
+  ignore_errors: true
+
+- name: add default editor
+  lineinfile:
+    path: /home/{{ user.name }}/.zshrc
+    line: | 
+      export EDITOR=vim
+      export KUBE_EDITOR=vim
+  when: test_editor is failed
+
 - name: create a new ssh key
   user:
     name: '{{ user.name }}'

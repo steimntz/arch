@@ -1,5 +1,3 @@
 setxkbmap br
 xsetroot -cursor_name left_ptr
-export EDITOR=vim
-export KUBE_EDITOR=vim
 exec xmonad
