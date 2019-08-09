@@ -29,6 +29,9 @@
 - name: copy my screensaver config
   template: src=xscreensaver dest=/home/{{ user.name }}/.xscreensaver owner={{ user.name }}
 
+- name: copy my idea vim config
+  template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }}
+
 - name: copy my xmonad main file
   template: src=xmonad.hs dest=/home/{{ user.name }}/.xmonad/xmonad.hs owner={{ user.name }}
 
