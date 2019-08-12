@@ -50,13 +50,14 @@
   register: test_editor
   ignore_errors: true
 
-- name: add default editor
+- name: add default editor and PATH
   lineinfile:
     path: /home/{{ user.name }}/.zshrc
     line: | 
       export EDITOR=vim
       export KUBE_EDITOR=vim
       export VISUAL=vim
+      export PATH="$PATH:/home/{{ user.name }}/bin"
   when: test_editor is failed
 
 - name: create a new ssh key
