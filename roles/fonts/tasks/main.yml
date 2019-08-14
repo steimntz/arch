@@ -14,26 +14,3 @@
     path: /etc/profile.d/freetype2.sh
     regexp: '^#(export FREETYPE_PROPERTIES.*)$'
     replace: '\1'
-- name: For font consistency, all applications should be set to use the serif, sans-serif, and monospace aliases, which are mapped to particular fonts by fontconfig.
-  copy:
-    dest: /etc/fonts/local.conf
-    content: |
-      <?xml version="1.0"?>
-      <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-      <fontconfig>
-          <match>
-              <edit mode="prepend" name="family"><string>Noto Sans</string></edit>
-          </match>
-          <match target="pattern">
-              <test qual="any" name="family"><string>serif</string></test>
-              <edit name="family" mode="assign" binding="same"><string>Noto Serif</string></edit>
-          </match>
-          <match target="pattern">
-              <test qual="any" name="family"><string>sans-serif</string></test>
-              <edit name="family" mode="assign" binding="same"><string>Noto Sans</string></edit>
-          </match>
-          <match target="pattern">
-              <test qual="any" name="family"><string>monospace</string></test>
-              <edit name="family" mode="assign" binding="same"><string>Noto Mono</string></edit>
-          </match>
-      </fontconfig>
