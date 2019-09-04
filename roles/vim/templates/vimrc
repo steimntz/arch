@@ -9,6 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
+Plugin 'tomasr/molokai'
 Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -44,3 +45,7 @@ set hlsearch            " highlight search results
 set gdefault            " default to global substitution, without having to put the /g at the end
 set relativenumber      " show relative line numbers
 set number              " but show the current linenum at the center
+
+if &diff
+    colorscheme molokai
+endif
