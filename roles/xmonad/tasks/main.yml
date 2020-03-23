@@ -17,6 +17,7 @@
   pacman: 
     pkg:
       - xmonad
+      - xmobar
       - xmonad-contrib
     state: present
 
@@ -47,6 +48,9 @@
 
 - name: Copy my xinitrc
   template: src=xinitrc dest=/home/{{ user.name }}/.xinitrc owner={{ user.name }}
+
+- name: Copy my xmobar
+  template: src=xmobar dest=/home/{{ user.name }}/.xmobarrc owner={{ user.name }}
 
 - name: compile XMonad
   shell: xmonad --recompile
