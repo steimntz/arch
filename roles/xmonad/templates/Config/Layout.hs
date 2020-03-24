@@ -7,7 +7,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Renamed
 
 gapWidth=5
-writeroom = renamed [Replace "writeroom"] $ gaps [(L, gapWidth*100), (R, gapWidth*100)] Full
 
 myLayout = spacing gapWidth $ gaps [(U, gapWidth*5), (L, gapWidth), (R, gapWidth), (D, gapWidth)] $
            tiledHalf 
@@ -16,9 +15,9 @@ myLayout = spacing gapWidth $ gaps [(U, gapWidth*5), (L, gapWidth), (R, gapWidth
            ||| writeroom
 
   where
-     -- default tiling algorithm partitions the screen into two panes
      tiledTwoThirds   = Tall nmaster delta ratioTwoThirds
      tiledHalf = Tall nmaster delta ratioHalf
+     writeroom = renamed [Replace "writeroom"] $ gaps [(L, gapWidth*100), (R, gapWidth*100)] Full
  
      -- The default number of windows in the master pane
      nmaster = 1
