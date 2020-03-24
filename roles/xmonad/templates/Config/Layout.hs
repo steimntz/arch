@@ -3,14 +3,17 @@ module Config.Layout( myLayout ) where
 import XMonad
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Renamed
 
 gapWidth=5
+writeroom = renamed [Replace "writeroom"] $ gaps [(L, gapWidth*100), (R, gapWidth*100)] Full
 
-myLayout = spacing gapWidth $ gaps [(U,gapWidth),(D,gapWidth),(L,gapWidth),(R,gapWidth)] $
-
+myLayout = spacing gapWidth $ gaps [(U, gapWidth*5), (L, gapWidth), (R, gapWidth), (D, gapWidth)] $
            tiledHalf 
            ||| Mirror tiledTwoThirds
            ||| Full
+           ||| writeroom
 
   where
      -- default tiling algorithm partitions the screen into two panes
