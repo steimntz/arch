@@ -3,8 +3,26 @@
 # Script based on https://gist.github.com/emilio2hd/c910661bff37246bee17
 #
 - name: Check if sdkman is installed
-  shell: test -d {{home}}/.sdkman/ && echo "yes" || echo "no"
+  shell: test -d /home/{{ user.name }}/.sdkman/ && echo "yes" || echo "no"
   register: is_sdkman_installed
+
+- name: Check if Java is installed
+  command: java -version
+  register: is_java_installed
+  ignore_errors: True
+
+- name: Check if Gradle is installed
+  command: gradle --version
+  register: is_gradle_installed
+  ignore_errors: True
+
+- debug:
+    msg: "Failed - Java is not installed"
+  when: is_java_installed is failed
+
+- debug:
+    msg: "Success - Java is installed"
+  when: is_java_installed is success
 
 - name: Download SDKMAN!
   when: is_sdkman_installed.stdout == "no"
@@ -19,7 +37,7 @@
   become_user: "{{ user.name }}"
 
 - name: Add sdkman in .zshrc
-  lineinfile: dest={{home}}/.zshrc regexp="\/.sdkman/bin\/sdkman\-init\.sh" line='[[ -s "{{home}}/.sdkman/bin/sdkman-init.sh" ]] && source "{{home}}/.sdkman/bin/sdkman-init.sh"'
+  lineinfile: dest=/home/{{ user.name }}/.zshrc regexp="\/.sdkman/bin\/sdkman\-init\.sh" line='[[ -s "/home/{{ user.name }}/.sdkman/bin/sdkman-init.sh" ]] && source "/home/{{ user.name }}/.sdkman/bin/sdkman-init.sh"'
   become: yes
   become_user: "{{ user.name }}"
 
@@ -27,8 +45,10 @@
   command: zsh -ilc "[[ -s '/home/steimntz/.sdkman/bin/sdkman-init.sh' ]] && source '/home/steimntz/.sdkman/bin/sdkman-init.sh' && sdk install gradle"
   become: yes
   become_user: "{{ user.name }}"
+  when: is_gradle_installed is failed
 
 - name: Installing Java 
   command: zsh -ilc "[[ -s '/home/steimntz/.sdkman/bin/sdkman-init.sh' ]] && source '/home/steimntz/.sdkman/bin/sdkman-init.sh' && sdk install java"
   become: yes
   become_user: "{{ user.name }}"
+  when: is_java_installed is failed
