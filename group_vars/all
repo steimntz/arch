@@ -35,6 +35,7 @@ apps:
     - cups
     - ghostscript
     - xscreensaver
+    - dmenu
 
 firefox:
   extensions:
