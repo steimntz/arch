@@ -7,14 +7,18 @@
   register: is_sdkman_installed
 
 - name: Check if Java is installed
-  command: java -version
+  command: zsh -ilc "[[ -s '/home/steimntz/.sdkman/bin/sdkman-init.sh' ]] && source '/home/steimntz/.sdkman/bin/sdkman-init.sh' &&  java -version"
   register: is_java_installed
   ignore_errors: True
+  become: yes
+  become_user: "{{ user.name }}"
 
 - name: Check if Gradle is installed
-  command: gradle --version
+  command: zsh -ilc "[[ -s '/home/steimntz/.sdkman/bin/sdkman-init.sh' ]] && source '/home/steimntz/.sdkman/bin/sdkman-init.sh' && gradle --version"
   register: is_gradle_installed
   ignore_errors: True
+  become: yes
+  become_user: "{{ user.name }}"
 
 - debug:
     msg: "Failed - Java is not installed"
