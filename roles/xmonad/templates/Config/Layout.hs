@@ -5,10 +5,14 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Renamed
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 
 gapWidth=5
 
-myLayout = spacing gapWidth $ gaps [(U, gapWidth*5), (L, gapWidth), (R, gapWidth), (D, gapWidth)] $
+myLayout = spacing gapWidth $
+           mkToggle (NOBORDERS ?? FULL ?? EOT) $
+           gaps [(U, gapWidth*5), (L, gapWidth), (R, gapWidth), (D, gapWidth)] $
            tiledHalf 
            ||| Mirror tiledTwoThirds
            ||| Full
