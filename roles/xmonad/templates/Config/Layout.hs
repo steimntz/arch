@@ -11,8 +11,8 @@ import XMonad.Layout.MultiToggle.Instances
 gapWidth=5
 
 myLayout = spacing gapWidth $
-           mkToggle (NOBORDERS ?? FULL ?? EOT) $
            gaps [(U, gapWidth*5), (L, gapWidth), (R, gapWidth), (D, gapWidth)] $
+           mkToggle (NOBORDERS ?? FULL ?? EOT) $
            tiledHalf 
            ||| Mirror tiledTwoThirds
            ||| Full
