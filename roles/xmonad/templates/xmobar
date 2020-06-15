@@ -1,4 +1,4 @@
-Config { font = "xft:DejaVuSansMono Nerd Font Mono:size=10"
+Config { font = "xft:DejaVuSansMono Nerd Font Mono:pixelsize=12:antialiase=true:autohinting=true"
         , borderColor = "#ba9864"
         , border = BottomB
         , bgColor = "#222222"

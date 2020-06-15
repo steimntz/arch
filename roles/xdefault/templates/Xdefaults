@@ -40,11 +40,14 @@
 ! ------------------------------------------------------------------------------
 ! Font URxvt
 ! ------------------------------------------------------------------------------
-URxvt.font: xft:DejaVu Sans Mono:size=10
+urxvt.font: xft:DejaVuSansMono Nerd Font Mono:pixelsize=13:antialiase=true:autohinting=true
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.clipboard.autocopy: true
 URxvt.keysym.Control-Meta-c: perl:clipboard:copy
 URxvt.keysym.Control-Meta-v: perl:clipboard:paste
+URxvt*letterSpace: 2
+xterm*utf8: 2
+urxvt.locale: true
 URxvt.scrollTtyKeypress: true
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.externalBorder: 0
