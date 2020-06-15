@@ -1,4 +1,4 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+Config { font = "xft:DejaVuSansMono Nerd Font Mono:size=10"
         , borderColor = "#ba9864"
         , border = BottomB
         , bgColor = "#222222"
@@ -15,5 +15,5 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                         ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "<fc=#ba9864>%StdinReader%</fc> | %cpu% | %memory% * %swap% | %enp5s0% }{<fc=#ba9864>%date%</fc> | %uname% | %CYVR% "
+        , template = "<fc=#ba9864>%StdinReader%</fc> | %cpu% |  %memory% * %swap% | %enp5s0% }{<fc=#ba9864>%date%</fc> | %uname% | %CYVR% "
         }
