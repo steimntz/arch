@@ -40,7 +40,7 @@
 ! ------------------------------------------------------------------------------
 ! Font URxvt
 ! ------------------------------------------------------------------------------
-urxvt.font: xft:DejaVuSansMono Nerd Font Mono:pixelsize=13:antialiase=true:autohinting=true
+URxvt.font: xft:DejaVuSansMono Nerd Font Mono:pixelsize=13:antialiase=true:autohinting=true
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.clipboard.autocopy: true
 URxvt.keysym.Control-Meta-c: perl:clipboard:copy
@@ -55,12 +55,14 @@ URxvt.scrollBar: false
 
 URxvt.letterSpace: -1
 
-Xft.lcdfilter: lcddefault
-Xft.hinting: 1
-Xft.hintstyle: hintslight
+! Xft - makes everything look better
 Xft.autohint: 0
+Xft.dpi: 96
+Xft.antialias: true
 Xft.rgba: rgb
-Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
 URxvt.internalBorder:       3
 URxvt.lineSpace: 0
