@@ -40,7 +40,11 @@
 ! ------------------------------------------------------------------------------
 ! Font URxvt
 ! ------------------------------------------------------------------------------
-URxvt.font: xft:DejaVu Sans Mono:size=10,xft:PowerlineSymbols:pixelsize=12,xft:Noto Sans Kannada:style=Regular:pixelsize=14,xft:Mona:style=Regular:pixelsize=14
+URxvt.font: xft:DejaVu Sans Mono:size=10
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.clipboard.autocopy: true
+URxvt.keysym.Control-Meta-c: perl:clipboard:copy
+URxvt.keysym.Control-Meta-v: perl:clipboard:paste
 URxvt.scrollTtyKeypress: true
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.externalBorder: 0

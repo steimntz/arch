@@ -12,9 +12,6 @@ computer:
 apps:
   default:
     - feh
-    - ttf-dejavu
-    - ttf-liberation
-    - noto-fonts
     - rxvt-unicode
     - rxvt-unicode-terminfo
     - zip
@@ -41,6 +38,9 @@ apps:
     - gst-plugins-ugly
     - gifski
     - numlockx
+    - powerline
+    - powerline-fonts
+    - urxvt-perls
 
 firefox:
   extensions:
