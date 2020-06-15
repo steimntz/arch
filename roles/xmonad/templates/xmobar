@@ -1,4 +1,6 @@
-Config { font = "xft:DejaVuSansMono Nerd Font Mono:pixelsize=12:antialiase=true:autohinting=true"
+Config {  font = "xft:DejaVuSansMono Nerd Font Mono:pixelsize=12:antialiase=true:autohinting=true"
+        , additionalFonts = ["xft:DejaVuSansMono Nerd Font Mono:pixelsize=18:antialiase=true:autohinting=true"]
+        , textOffsets = [15]
         , borderColor = "#ba9864"
         , border = BottomB
         , bgColor = "#222222"
@@ -15,5 +17,5 @@ Config { font = "xft:DejaVuSansMono Nerd Font Mono:pixelsize=12:antialiase=true:
                         ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "<fc=#ba9864>%StdinReader%</fc> | %cpu% |  %memory% * %swap% | %enp5s0% }{<fc=#ba9864>%date%</fc> | %uname% | %CYVR% "
+        , template = "<fc=#ba9864>%StdinReader%</fc> | %cpu% | <fn=1></fn> %memory% * %swap% | %enp5s0% }{<fc=#ba9864>%date%</fc> | %uname% | %CYVR% "
         }
