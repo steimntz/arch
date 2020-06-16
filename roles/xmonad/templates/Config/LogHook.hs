@@ -7,8 +7,8 @@ yellowHl = "#ffe059"
 red      = "#924650"
 
 circlify :: Bool -> String -> String
-circlify True  _  = "<raw=1:\61713/>"
-circlify False _  = "<raw=1:\61708/>"
+circlify True  _  = xmobarRaw "\61713"
+circlify False _  = xmobarRaw "\61708"
 
 myLogHook xmproc = dynamicLogWithPP xmobarPP { ppOutput  = hPutStrLn xmproc
                                       , ppTitle   = xmobarColor "#4f8396" "" . shorten 50
