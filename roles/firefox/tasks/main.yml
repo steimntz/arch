@@ -1,6 +1,6 @@
 ---
 - name: Create firefox directory with right permissions
-  file: path=/home/{{ user.name }}/.mozilla/xpis state=directory owner={{ user.name }} recurse=true
+  file: path=/home/{{ user.name }}/.mozilla/xpis state=directory owner={{ user.name }} group={{ user.name }} recurse=true
 
 - name: Download extensions
   get_url: url={{ item.url }} dest=/home/{{ user.name }}/.mozilla/xpis/{{ item.filename }}.xpi checksum=sha256:{{ item.checksum }}
@@ -11,7 +11,7 @@
   pacman: name=unzip state=present
 
 - name: Create temp folder
-  file: path=/tmp/ffextensions/{{ item.filename }} state=directory owner={{ user.name }} recurse=true
+  file: path=/tmp/ffextensions/{{ item.filename }} state=directory owner={{ user.name }} group={{ user.name }} recurse=true
   with_items:
     - "{{ firefox.extensions }}"
 

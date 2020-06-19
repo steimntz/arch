@@ -15,8 +15,21 @@
     regexp: '^#(export FREETYPE_PROPERTIES.*)$'
     replace: '\1'
 
+- name: Create fonts directory
+  file:
+    path: /home/{{ user.name }}/.local/share/fonts/
+    owner: "{{user.name}}"
+    group: "{{user.name}}"
+    recurse: true
+    state: directory
+
 - name: Get DejaVu Sans Mono Nerd Font Complete Mono
   get_url:
     url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/fa69496f5a3291fbcb6c0ad5bcec9c8bcab842fc/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
-    dest: /home/{{ user.name }}/.local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono.ttf
+    dest: /home/{{ user.name }}/.local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono.ttf owner={{user.name}} group={{user.name}}
     checksum: sha256:0be1bb4ae68562c29566da73c1562af11dd381705bac4ff9870be666b5856b5d
+
+- name: Update font-cache
+  command: fc-cache -fv
+  become: yes
+  become_user: "{{ user.name }}"

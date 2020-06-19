@@ -1,2 +1,2 @@
 - name: Configure .Xdefault
-  template: src="Xdefaults" dest="/home/{{ user.name }}/.Xdefaults" owner={{ user.name }}
+  template: src="Xdefaults" dest="/home/{{ user.name }}/.Xdefaults" owner={{ user.name }} group={{ user.name }}

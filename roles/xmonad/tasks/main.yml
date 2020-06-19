@@ -6,7 +6,7 @@
   pacman: name=xorg-xinit state=present
 
 - name: make directory /home/{{ user.name }}/screenshots
-  file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }}
+  file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }} group={{ user.name }} recurse=true
 
 - name: install driver
   pacman: name={{ item }} state=present
@@ -25,22 +25,22 @@
   pacman: name=rofi state=present
 
 - name: create .xmonad directory with user permission
-  file: path=/home/{{ user.name }}/.xmonad/lib/Config state=directory owner={{ user.name }} recurse=true
+  file: path=/home/{{ user.name }}/.xmonad/lib/Config state=directory owner={{ user.name }} group={{ user.name }} recurse=true
 
 - name: copy my screensaver config
-  template: src=xscreensaver dest=/home/{{ user.name }}/.xscreensaver owner={{ user.name }}
+  template: src=xscreensaver dest=/home/{{ user.name }}/.xscreensaver owner={{ user.name }} group={{ user.name }}
 
 - name: copy my idea vim config
-  template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }}
+  template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }} group={{ user.name }}
 
 - name: copy my xmonad main file
-  template: src=xmonad.hs dest=/home/{{ user.name }}/.xmonad/xmonad.hs owner={{ user.name }}
+  template: src=xmonad.hs dest=/home/{{ user.name }}/.xmonad/xmonad.hs owner={{ user.name }} group={{ user.name }}
 
 - name: create my xmonad configurations directory with user permission
-  file: path=/home/{{ user.name }}/.xmonad/lib/Config state=directory owner={{ user.name }} recurse=true
+  file: path=/home/{{ user.name }}/.xmonad/lib/Config state=directory owner={{ user.name }} group={{ user.name }} recurse=true
 
 - name: copy my xmonad configurations
-  template: src={{ item }} dest=/home/{{ user.name }}/.xmonad/lib/{{ item }} owner={{ user.name }}
+  template: src={{ item }} dest=/home/{{ user.name }}/.xmonad/lib/{{ item }} owner={{ user.name }} group={{ user.name }}
   with_items:
     - Config/Mappings.hs
     - Config/Layout.hs
