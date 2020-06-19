@@ -29,6 +29,21 @@
     dest: /home/{{ user.name }}/.local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono.ttf owner={{user.name}} group={{user.name}}
     checksum: sha256:0be1bb4ae68562c29566da73c1562af11dd381705bac4ff9870be666b5856b5d
 
+- name: Get DejaVu Sans Mono Nerd Font Complete Mono Bold
+  get_url:
+    url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/5371994aa892fcd4eed149c63d905d6815b36a38/patched-fonts/DejaVuSansMono/Bold/complete/DejaVu%20Sans%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
+    dest: /home/{{ user.name }}/.local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono Bold.ttf owner={{user.name}} group={{user.name}}
+
+- name: Get DejaVu Sans Mono Nerd Font Complete Mono Oblique
+  get_url:
+    url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/5371994aa892fcd4eed149c63d905d6815b36a38/patched-fonts/DejaVuSansMono/Italic/complete/DejaVu%20Sans%20Mono%20Oblique%20Nerd%20Font%20Complete%20Mono.ttf
+    dest: /home/{{ user.name }}/.local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono Oblique.ttf owner={{user.name}} group={{user.name}}
+
+- name: Get DejaVu Sans Mono Nerd Font Complete Mono Bold Oblique
+  get_url:
+    url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/5371994aa892fcd4eed149c63d905d6815b36a38/patched-fonts/DejaVuSansMono/Bold-Italic/complete/DejaVu%20Sans%20Mono%20Bold%20Oblique%20Nerd%20Font%20Complete%20Mono.ttf
+    dest: /home/{{ user.name }}/.local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono Bold Oblique.ttf owner={{user.name}} group={{user.name}}
+
 - name: Update font-cache
   command: fc-cache -fv
   become: yes
