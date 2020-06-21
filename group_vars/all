@@ -21,7 +21,6 @@ apps:
     - alsa-utils
     - dzen2
     - xorg-xrandr
-    - firefox
     - pavucontrol
     - kubectl
     - xorg-xinput
@@ -33,15 +32,22 @@ apps:
     - ghostscript
     - xscreensaver
     - dmenu
+    - libx264
     - ffmpeg
     - ffmpegthumbs
-    - gst-plugins-ugly
     - gifski
     - numlockx
     - powerline
     - powerline-fonts
     - urxvt-perls
     - tmux
+    - vlc
+    - gst-plugins-ugly
+    - gst-plugins-good
+    - gst-libav
+    - firefox
+    - gimp
+    - inkscape
 
 firefox:
   extensions:
