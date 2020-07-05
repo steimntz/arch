@@ -95,7 +95,7 @@ nmap <leader><space> :nohl<cr>
 
 " This needs the IntelliJ plugin "AceJump", it provides the same functionality
 " that easymotion for Vim
-nmap f :action AceAction<cr>
+nmap <leader>f :action AceAction<cr>
 nmap <leader>b :action GotoDeclaration<cr>
 nmap <leader>t :action GotoFile<cr>
 
