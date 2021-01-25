@@ -48,6 +48,7 @@ apps:
     - firefox
     - gimp
     - inkscape
+    - playerctl
 
 firefox:
   extensions:
