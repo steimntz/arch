@@ -49,6 +49,9 @@ apps:
     - gimp
     - inkscape
     - playerctl
+    - buildah
+    - podman
+    - fuse-overlayfs
 
 firefox:
   extensions:
