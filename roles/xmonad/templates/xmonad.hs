@@ -3,12 +3,13 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Hooks.ManageDocks
 import Config.Mappings as Cfg
+import Config.XColors as Colors
 import Config.StartUpHooks as StartUp
 import Config.Layout
 import Config.ManageHook
 import Config.LogHook
 
-yellow   = "#ba9864"
+primary = Colors.fromXres $ Colors.fromXres "stz.primary"
 
 main = do
  xmproc <- spawnPipe "xmobar"
@@ -16,7 +17,7 @@ main = do
   { terminal                     = "urxvt"
   , modMask                      = mod4Mask
   , borderWidth                  = 2
-  , focusedBorderColor           = yellow
+  , focusedBorderColor           = primary
   , startupHook                  = StartUp.hooks
   , manageHook                   = myManageHook
   , layoutHook                   = avoidStruts $ myLayout

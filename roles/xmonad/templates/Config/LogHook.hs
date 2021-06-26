@@ -2,9 +2,12 @@ module Config.LogHook( myLogHook ) where
 
 import System.IO
 import XMonad.Hooks.DynamicLog
+import Config.XColors as Colors
 
-yellowHl = "#ffe059"
-red      = "#924650"
+highlight = Colors.fromXres $ Colors.fromXres "stz.hl"
+primary = Colors.fromXres $ Colors.fromXres "stz.primary"
+background = Colors.fromXres "*background"
+foreground = Colors.fromXres "*foreground"
 
 circlify :: Bool -> String -> String
 circlify True  _  = xmobarRaw "\61713"
@@ -17,11 +20,11 @@ myLayoutPrinter "Spacing Mirror Tall" = xmobarRaw "ﳶ"
 myLayoutPrinter "Spacing writeroom"   = xmobarRaw "\63251"
 myLayoutPrinter x                     = xmobarRaw "\61738"
 
-myLogHook xmproc = dynamicLogWithPP xmobarPP { ppOutput  = hPutStrLn xmproc
-                                      , ppTitle   = xmobarColor "#4f8396" "" . shorten 50
-                                      , ppCurrent = xmobarColor red "#222222" . circlify True
-                                      , ppHidden  = xmobarColor yellowHl "#222222". circlify False
-                                      , ppUrgent  = xmobarColor "red" "#222222"
-                                      , ppLayout  = myLayoutPrinter
-                                      , ppWsSep   = " "
-                                      }
+myLogHook xmproc = dynamicLogWithPP xmobarPP { ppOutput    = hPutStrLn xmproc
+                                             , ppTitle     = xmobarColor foreground background . shorten 50
+                                             , ppCurrent   = xmobarColor primary background . circlify True
+                                             , ppHidden    = xmobarColor highlight background. circlify False
+                                             , ppUrgent    = xmobarColor "white" background
+                                             , ppLayout    = myLayoutPrinter
+                                             , ppWsSep     = " "
+                                             }

@@ -47,6 +47,7 @@
     - Config/ManageHook.hs
     - Config/StartUpHooks.hs
     - Config/LogHook.hs
+    - Config/XColors.hs
 
 - name: Copy my xinitrc
   template: src=xinitrc dest=/home/{{ user.name }}/.xinitrc owner={{ user.name }}

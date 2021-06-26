@@ -1,41 +1,43 @@
-! http://dotshare.it/dots/8336/
 ! blaquebeard
 ! special
-*.foreground:   #c2c2b0
-*.background:   #222222
-*.cursorColor:  #c2c2b0
+*foreground:	#ecf0f1
+*background:	#141516
+*cursorColor:	#ecf0f1
 
 ! black
-*.color0:       #222222
-*.color8:       #222222
+*color0:	#5c616c
+*color8:	#5c616c
 
 ! red
-*.color1:       #924650
-*.color9:       #924650
+*color1:	#e1485a
+*color9:	#e1485a
 
 ! green
-*.color2:       #666666
-*.color10:      #666666
+*color2:	#35ac54
+*color10:	#35ac54
 
 ! yellow
-*.color3:       #ba9864
-*.color11:      #ba9864
+*color3:	#ef654a
+*color11:	#ef654a
 
 ! blue
-*.color4:       #888888
-*.color12:      #888888
+*color4:	#5294e2
+*color12:	#5294e2
 
 ! magenta
-*.color5:       #4f8396
-*.color13:      #4f8396
+*color5:	#c81a71
+*color13:	#c81a71
 
 ! cyan
-*.color6:       #777777
-*.color14:      #777777
+*color6:	#1ba39c
+*color14:	#1ba39c
 
 ! white
-*.color7:       #c2c2b0
-*.color15:      #c2c2b0
+*color7:	#ecf0f1
+*color15:	#ecf0f1
+
+stz.hl: *color2
+stz.primary: *color1
 
 ! ------------------------------------------------------------------------------
 ! Font URxvt
