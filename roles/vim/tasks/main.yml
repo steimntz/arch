@@ -27,6 +27,10 @@
   git:
     repo: "https://github.com/VundleVim/Vundle.vim.git"
     dest: "{{home.directory}}/{{ user.name }}/.vim/bundle/Vundle.vim"
+    force: yes
+    update: no
+  become: yes
+  become_user: "{{ user.name }}"
 
 - name: Configure .vimrc
   template: src="vimrc" dest="{{home.directory}}/{{ user.name }}/.vimrc" owner={{ user.name }} group={{ user.name }}

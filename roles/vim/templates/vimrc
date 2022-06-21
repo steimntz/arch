@@ -13,12 +13,18 @@ Plugin 'tomasr/molokai'
 Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'wakatime/vim-wakatime'
+" CoC
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 filetype plugin indent on
 
 """""""""""""""""""""""""""""""""
 " Bindings
 """""""""""""""""""""""""""""""""
+
+" source Vim configuration file and install plugins
+nnoremap <silent><leader>1 :source ~/.vimrc \| :BundleInstall<CR>
 
 nmap <leader>f :Ag<SPACE>
 nmap <leader>p :NERDTreeToggle<CR>
@@ -31,8 +37,25 @@ nmap <leader>O O<esc>
 nmap <S-k> gt
 nmap <S-j> gT
 
-" Remove highlighted search
+" remove highlighted search
 nmap <leader><space> :nohl<cr>
+
+" CoC
+"
+"   extensions
+let g:coc_global_extensions = ['coc-tsserver']
+
+"   remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+"   apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+"   goTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 """""""""""""""""""""""""""""""""
 " Basic Configuration
