@@ -35,8 +35,17 @@
 - name: Configure .vimrc
   template: src="vimrc" dest="{{home.directory}}/{{ user.name }}/.vimrc" owner={{ user.name }} group={{ user.name }}
 
+- name: Run Yarn install
+  shell: yarn install chdir="{{home.directory}}/{{ user.name }}/.vim/bundle/coc.nvim"
+  become: yes
+  become_user: "{{ user.name }}"
+
 - name: Run PluginInstall
   shell: vim +PluginInstall +qall
+  become: yes
+  become_user: "{{ user.name }}"
 
 - name: Run PluginClean
   shell: vim '+PluginClean!' +qall
+  become: yes
+  become_user: "{{ user.name }}"
