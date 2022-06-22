@@ -13,6 +13,11 @@
   shell: grep -c "ASDF_DIR" "/home/{{ user.name }}/.zshrc" || true
   register: test_completions
 
+
+- name: Test for nodejs installation
+  shell: asdf list | grep "nodejs" || true
+  register: test_nodejs
+
 - name: Add initialise completions 
   blockinfile:
     dest: "/home/{{ user.name }}/.zshrc"
@@ -21,3 +26,9 @@
     . $HOME/.asdf/asdf.sh
     fpath=(${ASDF_DIR}/completions $fpath)"
   when: test_completions.stdout == "0"
+
+- name: Add NodeJS plugin
+  shell: . $HOME/.asdf/asdf.sh && asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  become: yes
+  become_user: "{{ user.name }}"
+  when: test_nodejs.stdout == "0"
