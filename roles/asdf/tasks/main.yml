@@ -1,0 +1,23 @@
+---
+- name: Git clone Asdf VM
+  git:
+    repo: "https://github.com/asdf-vm/asdf.git"
+    dest: "/home/{{ user.name }}/.asdf"
+    refspec: v0.10.0
+    force: yes
+    update: no
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Test for initialise completions
+  shell: grep -c "ASDF_DIR" "/home/{{ user.name }}/.zshrc" || true
+  register: test_completions
+
+- name: Add initialise completions 
+  blockinfile:
+    dest: "/home/{{ user.name }}/.zshrc"
+    insertafter: 'autoload -Uz compinit'
+    content: "
+    . $HOME/.asdf/asdf.sh
+    fpath=(${ASDF_DIR}/completions $fpath)"
+  when: test_completions.stdout == "0"
