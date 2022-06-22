@@ -16,6 +16,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'wakatime/vim-wakatime'
 " CoC
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 call vundle#end()
 filetype plugin indent on
 
@@ -43,7 +44,7 @@ nmap <leader><space> :nohl<cr>
 " CoC
 "
 "   extensions
-let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-elixir']
 
 "   remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
