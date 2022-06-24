@@ -9,15 +9,17 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
-Plugin 'tomasr/molokai'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'ayu-theme/ayu-vim'
 " CoC
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+" Typescript
+Plugin 'Quramy/tsuquyomi'
 call vundle#end()
 filetype plugin indent on
 
@@ -75,6 +77,9 @@ nnoremap <Leader>m :CocCommand explorer <cr>
 "   Refactoring
 nnoremap <Leader>r :CocCommand document.renameCurrentWord <cr>
 
+autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
+
 "   ctrl p
 nmap <space>f :CtrlP<CR>
 
@@ -90,6 +95,8 @@ set gdefault            " default to global substitution, without having to put 
 set relativenumber      " show relative line numbers
 set number              " but show the current linenum at the center
 
-if &diff
-    colorscheme molokai
-endif
+let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+
