@@ -15,6 +15,9 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ayu-theme/ayu-vim'
+" Style
+Plugin 'Yggdroot/indentLine.git'
+Plugin 'ryanoasis/vim-devicons'
 " CoC
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
@@ -95,6 +98,14 @@ set gdefault            " default to global substitution, without having to put 
 set relativenumber      " show relative line numbers
 set number              " but show the current linenum at the center
 
+" IndentLine \{\{
+let g:indentLine_char_list = '|'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+" \}\}
+
+set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
 let ayucolor="dark"   " for dark version of theme
