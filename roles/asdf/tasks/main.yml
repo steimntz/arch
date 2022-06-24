@@ -64,3 +64,13 @@
   shell: . $HOME/.asdf/asdf.sh && npm install -g yarn
   become: yes
   become_user: "{{ user.name }}"
+
+- name: "Add other langs latest version"
+  shell: . $HOME/.asdf/asdf.sh && asdf install {{ item }} latest && asdf global {{ item }} latest
+  ignore_errors: yes
+  become: yes
+  become_user: "{{ user.name }}"
+  ignore_errors: yes
+  with_items:
+    - erlang
+    - elixir
