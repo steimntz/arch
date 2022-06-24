@@ -69,6 +69,13 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 "   rename coc
 nmap <leader>rn <Plug>(coc-rename)
 
+"   Directory management
+nnoremap <Leader>m :CocCommand explorer <cr>
+
+"   Refactoring
+nnoremap <Leader>r :CocCommand document.renameCurrentWord <cr>
+
+
 "   ctrl p
 nmap <space>f :CtrlP<CR>
 
