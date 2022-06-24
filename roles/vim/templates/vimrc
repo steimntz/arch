@@ -75,7 +75,6 @@ nnoremap <Leader>m :CocCommand explorer <cr>
 "   Refactoring
 nnoremap <Leader>r :CocCommand document.renameCurrentWord <cr>
 
-
 "   ctrl p
 nmap <space>f :CtrlP<CR>
 
