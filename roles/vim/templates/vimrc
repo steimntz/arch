@@ -14,6 +14,7 @@ Plugin 'jremmen/vim-ripgrep'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'sheerun/vim-polyglot'
 " CoC
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
@@ -44,7 +45,7 @@ nmap <leader><space> :nohl<cr>
 " CoC
 "
 "   extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-elixir']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-elixir', 'coc-java']
 
 "   remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
