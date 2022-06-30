@@ -1,0 +1,17 @@
+---
+# tasks file for ansible.archyay
+- name: Clone yay
+  git:
+    repo: https://aur.archlinux.org/yay-bin.git
+    dest: "/home/{{ user.name }}/yay"
+    update: true
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Build and install yay
+  command:
+    chdir: "/home/{{ user.name }}/yay"
+    cmd: "makepkg -sfi --noconfirm"
+    creates: /usr/bin/yay
+  become: yes
+  become_user: "{{ user.name }}"

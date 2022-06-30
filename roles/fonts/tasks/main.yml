@@ -1,14 +1,5 @@
 # This script is based on https://www.reddit.com/r/archlinux/comments/5r5ep8/make_your_arch_fonts_beautiful_easily/
 ---
-- name: Disable embedded bitmap for all fonts, enable sub-pixel RGB rendering, and enable the LCD filter which is designed to reduce colour fringing when subpixel rendering is used.
-  file:
-    src: '/etc/fonts/conf.avail/{{ item }}'
-    dest: '/etc/fonts/conf.d/{{item}}'
-    state: link
-  with_items:
-    - '70-no-bitmaps.conf'
-    - '10-sub-pixel-rgb.conf'
-    - '11-lcdfilter-default.conf'
 - name: Enable FreeType subpixel hinting mode
   replace:
     path: /etc/profile.d/freetype2.sh
@@ -48,3 +39,13 @@
   command: fc-cache -fv
   become: yes
   become_user: "{{ user.name }}"
+
+- name: Disable embedded bitmap for all fonts, enable sub-pixel RGB rendering, and enable the LCD filter which is designed to reduce colour fringing when subpixel rendering is used.
+  file:
+    src: '/etc/fonts/conf.avail/{{ item }}'
+    dest: '/etc/fonts/conf.d/{{item}}'
+    state: link
+  with_items:
+    - '70-no-bitmaps.conf'
+    - '10-sub-pixel-rgb.conf'
+    - '11-lcdfilter-default.conf'

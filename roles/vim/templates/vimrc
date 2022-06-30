@@ -11,7 +11,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'wakatime/vim-wakatime'
+" Plugin 'wakatime/vim-wakatime'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ayu-theme/ayu-vim'
@@ -19,7 +19,7 @@ Plugin 'ayu-theme/ayu-vim'
 Plugin 'Yggdroot/indentLine.git'
 Plugin 'ryanoasis/vim-devicons'
 " CoC
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install && yarn prepack'}
 Plugin 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 " Typescript
 Plugin 'Quramy/tsuquyomi'
