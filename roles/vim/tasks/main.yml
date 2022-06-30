@@ -36,7 +36,7 @@
   template: src="vimrc" dest="{{home.directory}}/{{ user.name }}/.vimrc" owner={{ user.name }} group={{ user.name }}
 
 - name: Run PluginInstall
-  shell: vim +PluginInstall +qall
+  shell: echo | echo | vim +PluginInstall +qall &>/dev/null 
   become: yes
   become_user: "{{ user.name }}"
 
@@ -46,7 +46,7 @@
   become_user: "{{ user.name }}"
 
 - name: Run PluginClean
-  shell: vim '+PluginClean!' +qall
+  shell: echo | echo | vim '+PluginClean!' +qall &>/dev/null 
   become: yes
   become_user: "{{ user.name }}"
 
