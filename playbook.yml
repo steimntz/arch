@@ -5,12 +5,13 @@
     - { role: sudo,     tags: ['everything', 'never', 'sudo'] }
     - { role: docker,   tags: ['everything', 'never', 'docker'] }
     - { role: git,      tags: ['everything', 'never', 'git'] }
+    - { role: apps,     tags: ['everything', 'never', 'apps'] }
     - { role: zprezto,  tags: ['everything', 'never', 'zsh'] }
     - { role: asdf,     tags: ['everything', 'never', 'asdf'] }
     - { role: vim,      tags: ['everything', 'never', 'vim', 'osx'] }
-    - { role: apps,     tags: ['everything', 'never', 'apps'] }
-    - { role: fonts,    tags: ['everything', 'never', 'fonts'] }
     - { role: xdefault, tags: ['everything', 'never', 'xorgs'] }
     - { role: xmonad,   tags: ['everything', 'never', 'gui'] }
     - { role: scroll,   tags: ['everything', 'never', 'scroll'] }
     - { role: sdkman,   tags: ['everything', 'never', 'java']  }
+    - { role: yay,      tags: ['everything', 'never', 'yay'] }
+    - { role: fonts,    tags: ['everything', 'never', 'fonts'] }

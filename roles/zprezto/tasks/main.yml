@@ -5,7 +5,10 @@
   file: path=/home/{{ user.name }}/.zprezto state=directory owner={{ user.name }} group={{ user.name }} recurse=true
 
 - name: install prezto
-  git: repo=https://github.com/sorin-ionescu/prezto.git dest=/home/{{ user.name }}/.zprezto force=yes
+  git: repo=https://github.com/sorin-ionescu/prezto.git dest=/home/{{ user.name }}/.zprezto force=yes update=no
+  become: yes
+  become_user: "{{ user.name }}"
+
 
 - name: get rid of existing ~/.zshrc
   file: path=/home/{{ user.name }}/.zshrc state=absent owner={{ user.name }} group={{ user.name }}
@@ -61,10 +64,7 @@
   when: test_editor is failed
 
 - name: create a new ssh key
-  user:
-    name: '{{ user.name }}'
-    generate_ssh_key: yes
-    ssh_key_bits: 2048
-    ssh_key_file: .ssh/id_rsa
+  shell: ssh-keygen -q -f /home/{{ user.name }}/ -N ""
+  ignore_errors: true
   become: yes
   become_user: '{{ user.name }}'
