@@ -45,7 +45,7 @@ nmap <leader><space> :nohl<cr>
 " CoC
 "
 "   extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-elixir', 'coc-java']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-elixir', 'coc-java', 'coc-kotlin', 'coc-phpls']
 
 "   remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
