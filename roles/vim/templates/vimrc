@@ -105,6 +105,9 @@ let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 " \}\}
 
+" Fuzzy configuration
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
