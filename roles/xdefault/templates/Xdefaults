@@ -36,8 +36,9 @@
 *color7:	#ecf0f1
 *color15:	#ecf0f1
 
-stz.hl: *color2
-stz.primary: *color1
+stz.hl: *color5
+stz.primary: *color12
+stz.secondary: *color7
 
 ! ------------------------------------------------------------------------------
 ! Font URxvt
