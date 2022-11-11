@@ -7,8 +7,8 @@ import XMonad.Layout.MultiToggle.Instances
 import qualified XMonad.StackSet as W
 
 myMouseKeys :: [((KeyMask, KeySym), X())]
-myMouseKeys = [((0, 0x1008ff11), spawn "amixer -c 3 -q sset Headphone 2%-")
-              , ((0, 0x1008ff13), spawn "amixer -c 3 -q sset Headphone 2%+")
+myMouseKeys = [ ((0, 0x1008ff11), spawn "pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} -2%")
+              , ((0, 0x1008ff13), spawn "pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} +2%")
               ]
 
 keyMappings :: [(String, X())]
