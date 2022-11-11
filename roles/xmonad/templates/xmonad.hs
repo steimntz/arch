@@ -24,4 +24,4 @@ main = do
   , manageHook                   = myManageHook
   , layoutHook                   = avoidStruts $ myLayout
   , logHook                      = myLogHook xmproc
-  } `additionalKeysP` Cfg.keyMappings
+  } `additionalKeysP` Cfg.keyMappings `additionalKeys` Cfg.myMouseKeys
