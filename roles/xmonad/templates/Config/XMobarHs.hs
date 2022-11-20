@@ -143,8 +143,8 @@ xmobarcfg = config {  font = "xft:DejaVuSansMono Nerd Font Mono:pixelsize=12:ant
           , position = TopW L 100
           , commands = [ Run $ Weather "CYVR" ["-t","<tempC>C","-L","18","-H","25","--normal",blue,"--high",red,"--low",lightblue] 36000
                        , Run $ Network "enp5s0" ["-L","0","-H","32","--normal",blue,"--high",blue++"a", "--template", "<dev>: <fn=2> <tx>kB/s  <rx>kB/s</fn>", "--Low", "1000", "--High", "5000"] 10
-                       , Run $ Cpu ["-L","3","-H","50","--normal",blue,"--high",red] 10
-                       , Run $ Memory ["-t","Mem: <usedratio>%"] 10
+                       , Run $ Cpu ["-L", "3", "-H", "50", "--normal", blue, "--high", red, "-t", "<fn=1>\xf126</fn> <total>%"] 10
+                       , Run $ Memory ["-t","<fn=1>\xf16c</fn> <usedratio>%"] 10
                        , Run $ Swap [] 10
                        , Run $ Volume "default" "Master" ["-t", "<fn=2>\xf028</fn> <volume>%"] 10
                        , Run $ Com "uname" ["-s","-r"] "" 36000
