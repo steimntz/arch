@@ -146,13 +146,14 @@ xmobarcfg = config {  font = "xft:DejaVuSansMono Nerd Font Mono:pixelsize=12:ant
                        , Run $ Cpu ["-L","3","-H","50","--normal",blue,"--high",red] 10
                        , Run $ Memory ["-t","Mem: <usedratio>%"] 10
                        , Run $ Swap [] 10
+                       , Run $ Volume "default" "Master" ["-t", "<fn=2>\xf028</fn> <volume>%"] 10
                        , Run $ Com "uname" ["-s","-r"] "" 36000
                        , Run $ Date "%a %b %_d %Y %H:%M:%S" "date" 10
                        , Run $ StdinReader
                        ]
           , sepChar = "%"
           , alignSep = "}{"
-          , template = "<fc=" ++ secondary ++ ">%StdinReader%</fc>  <fn=1></fn> %cpu%  <fn=1></fn> %memory% * %swap%  <fn=1></fn> %enp5s0% }{<fc=" ++ lightyellow ++ ">%date%</fc>  <fn=1></fn> %uname%  <fn=1></fn> %CYVR% "
+          , template = "<fc=" ++ secondary ++ ">%StdinReader%</fc>  <fn=1></fn> %cpu%  <fn=1></fn> %memory% * %swap%  <fn=1></fn> %enp5s0% }{%default:Master% <fc=" ++ lightyellow ++ ">%date%</fc>  <fn=1></fn> %uname%  <fn=1></fn> %CYVR% "
           }
 
 data Run a = Run a
