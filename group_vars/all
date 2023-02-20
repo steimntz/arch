@@ -54,6 +54,7 @@ apps:
     - podman
     - fuse-overlayfs
     - autocutsel
+    - xdotool
     
 firefox:
   extensions:
