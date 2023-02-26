@@ -55,6 +55,7 @@ apps:
     - fuse-overlayfs
     - autocutsel
     - xdotool
+    - xmonad-dbus-git
     
 firefox:
   extensions:
