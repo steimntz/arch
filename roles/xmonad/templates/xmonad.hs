@@ -12,6 +12,7 @@ import Config.LogHook
 import qualified XMonad.DBus as D
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP (PP, def)
+import XMonad.Hooks.EwmhDesktops
 
 statusBarPP :: PP
 statusBarPP = def
@@ -22,16 +23,17 @@ mySB = statusBarProp "polybar --reload -c ~/.config/polybar/config.ini" (pure st
 
 main = do
  export
- xmproc <- spawnPipe "polybar"
  dbus <- D.connect
+ xmproc <- spawnPipe "polybar --reload -c ~/.config/polybar/config.ini"
  D.requestAccess dbus
- xmonad . withEasySB mySB defToggleStrutsKey $ def
+ xmonad . ewmhFullscreen . ewmh . withEasySB mySB defToggleStrutsKey $ def
   { terminal                     = "urxvt"
   , modMask                      = mod4Mask
   , borderWidth                  = 2
   , focusedBorderColor           = primary
   , startupHook                  = StartUp.hooks
   , manageHook                   = myManageHook
+  , workspaces                   = ["one", "two", "three", "four", "five"]
   , layoutHook                   = avoidStruts $ myLayout
   , logHook                      = myLogHookDbus dbus
   } `additionalKeysP` Cfg.keyMappings `additionalKeys` Cfg.myMouseKeys
