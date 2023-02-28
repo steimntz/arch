@@ -1,9 +1,7 @@
-module Config.LogHook( myLogHookDbus, myLogHookXmobar ) where
+module Config.LogHook( myLogHookXmobar ) where
 
 import System.IO
 import XMonad.Hooks.DynamicLog
-import qualified XMonad.DBus as D
-import qualified DBus.Client as DC
 
 import Config.XColors as Colors
 
@@ -22,11 +20,6 @@ myLayoutPrinter "Spacing Tall"        = xmobarRaw "\64319"
 myLayoutPrinter "Spacing Mirror Tall" = xmobarRaw "ﳶ"
 myLayoutPrinter "Spacing writeroom"   = xmobarRaw "\63251"
 myLayoutPrinter x                     = xmobarRaw "\61738"
-
-myDbus :: DC.Client -> PP
-myDbus dbus = def { ppOutput = D.send dbus }
-
-myLogHookDbus dbus = dynamicLogWithPP (myDbus dbus)
 
 myLogHookXmobar xmproc = dynamicLogWithPP xmobarPP { ppOutput    = hPutStrLn xmproc
                                              , ppTitle     = xmobarColor foreground background . shorten 50
