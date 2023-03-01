@@ -55,7 +55,7 @@ apps:
     - fuse-overlayfs
     - autocutsel
     - xdotool
-    - xmonad-dbus-git
+    - picom
     
 firefox:
   extensions:
