@@ -56,6 +56,9 @@ apps:
     - autocutsel
     - xdotool
     - picom
+    - w3m
+    - ranger
+    - ffmpegthumbnailer
     
 firefox:
   extensions:
