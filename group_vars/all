@@ -55,7 +55,10 @@ apps:
     - fuse-overlayfs
     - autocutsel
     - xdotool
-    - xmonad-dbus-git
+    - picom
+    - w3m
+    - ranger
+    - ffmpegthumbnailer
     
 firefox:
   extensions:
