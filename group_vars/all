@@ -59,6 +59,7 @@ apps:
     - w3m
     - ranger
     - ffmpegthumbnailer
+    - polybar
     
 firefox:
   extensions:

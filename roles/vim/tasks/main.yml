@@ -50,7 +50,7 @@
   become: yes
   become_user: "{{ user.name }}"
 
-- name: Add NodeJS latest version as current global version
-  shell: . $HOME/.asdf/asdf.sh && asdf local nodejs latest chdir="{{home.directory}}/{{ user.name }}/.vim/bundle/coc.nvim"
+- name: Add NodeJS latest version as current version
+  shell: . $HOME/.asdf/asdf.sh && asdf local nodejs 18.4.0 chdir="{{home.directory}}/{{ user.name }}/.vim/bundle/coc.nvim"
   become: yes
   become_user: "{{ user.name }}"
