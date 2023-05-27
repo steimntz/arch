@@ -60,6 +60,8 @@ apps:
     - ranger
     - ffmpegthumbnailer
     - polybar
+    - ripgrep
+    - docker-compose
     
 firefox:
   extensions:
