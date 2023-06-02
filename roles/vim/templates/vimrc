@@ -18,6 +18,9 @@ Plugin 'ayu-theme/ayu-vim'
 " Style
 Plugin 'Yggdroot/indentLine.git'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'vim-airline/vim-airline'
+Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
 " CoC
 Plugin 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install && yarn prepack'}
 Plugin 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
@@ -50,7 +53,7 @@ nmap <leader><space> :nohl<cr>
 " CoC
 "
 "   extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-elixir', 'coc-java', 'coc-kotlin', 'coc-phpls']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-elixir', 'coc-java', 'coc-kotlin', 'coc-phpls', '@yaegassy/coc-volar', 'coc-vetur']
 
 "   remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -109,8 +112,6 @@ let g:indentLine_setColors = 0
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 set termguicolors     " enable true colors support
-let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
 
+:colorscheme catppuccin_macchiato
+let g:airline_theme = 'catppuccin_macchiato'
