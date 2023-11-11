@@ -62,6 +62,7 @@ apps:
     - polybar
     - ripgrep
     - docker-compose
+    - adobe-source-han-sans-cn-fonts
     
 firefox:
   extensions:
