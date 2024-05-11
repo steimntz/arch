@@ -1,16 +1,17 @@
 module Config.Layout( myLayout ) where
 
 import XMonad
-import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
-import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Renamed
+import XMonad.Layout.Spacing
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.NoBorders
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 
 gapWidth=5
 
-myLayout = spacing gapWidth $
+myLayout = lessBorders OnlyScreenFloat $ spacing gapWidth $
            gaps [(U, gapWidth*3), (L, gapWidth), (R, gapWidth), (D, gapWidth)] $
            mkToggle (NOBORDERS ?? FULL ?? EOT) $
            tiledHalf 
