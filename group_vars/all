@@ -53,7 +53,6 @@ apps:
     - buildah
     - podman
     - fuse-overlayfs
-    - autocutsel
     - xdotool
     - picom
     - w3m
