@@ -11,6 +11,7 @@ computer:
 
 apps:
   default:
+    - debugedit
     - fakeroot
     - feh
     - rxvt-unicode
