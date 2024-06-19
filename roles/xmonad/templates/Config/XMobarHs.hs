@@ -142,18 +142,17 @@ xmobarcfg = config {  font = "xft:DejaVuSansMono Nerd Font Mono:pixelsize=12:ant
           , fgColor = foreground
           , position = TopW L 100
           , commands = [ Run $ Weather "CYVR" ["-t","<tempC>C","-L","18","-H","25","--normal",blue,"--high",red,"--low",lightblue] 36000
-                       , Run $ Network "enp5s0" ["-L","0","-H","32","--normal",blue,"--high",blue++"a", "--template", "<dev>: <fn=2> <tx>kB/s  <rx>kB/s</fn>", "--Low", "1000", "--High", "5000"] 10
+                       , Run $ Network "eno1" ["-L","0","-H","32","--normal",blue,"--high",blue++"a", "--template", "<dev>: <fn=2> <tx>kB/s  <rx>kB/s</fn>", "--Low", "1000", "--High", "5000"] 10
                        , Run $ Cpu ["-L", "3", "-H", "50", "--normal", blue, "--high", red, "-t", "<fn=1>\xf126</fn> <total>%"] 10
                        , Run $ Memory ["-t","<fn=1>\xf16c</fn> <usedratio>%"] 10
                        , Run $ Swap [] 10
-                       , Run $ Volume "default" "Master" ["-t", "<fn=2>\xf028</fn> <volume>%"] 10
                        , Run $ Com "uname" ["-s","-r"] "" 36000
                        , Run $ Date "%a %b %_d %Y %H:%M:%S" "date" 10
                        , Run $ StdinReader
                        ]
           , sepChar = "%"
           , alignSep = "}{"
-          , template = "<fc=" ++ secondary ++ ">%StdinReader%</fc>  <fn=1></fn> %cpu%  <fn=1></fn> %memory% * %swap%  <fn=1></fn> %enp5s0% }{%default:Master% <fc=" ++ lightyellow ++ ">%date%</fc>  <fn=1></fn> %uname%  <fn=1></fn> %CYVR% "
+          , template = "<fc=" ++ secondary ++ ">%StdinReader%</fc>  <fn=1></fn> %cpu%  <fn=1></fn> %memory% * %swap%  <fn=1></fn> %eno1% }{ <fc=" ++ lightyellow ++ ">%date%</fc>  <fn=1></fn> %uname%  <fn=1></fn> %CYVR% "
           }
 
 data Run a = Run a

@@ -10,5 +10,3 @@
 
 - name: Adding existing user {{ user.name }} to group docker
   user: name={{ user.name }} groups=docker append=yes
-
-- include_tasks: docker-compose.yml

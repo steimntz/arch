@@ -48,15 +48,16 @@
   become_user: "{{ user.name }}"
   when: test_nodejs_plugin.stdout.find("nodejs") == -1
 
-- name: Add NodeJS version 18
-  shell: . $HOME/.asdf/asdf.sh && asdf install nodejs 18.4.0
+- name: Add NodeJS version 20
+  shell: . $HOME/.asdf/asdf.sh && asdf install nodejs 20.10.0
   become: yes
   become_user: "{{ user.name }}"
   ignore_errors: yes
   when: test_node.failed == true
 
-- name: Add NodeJS latest version 18
-  shell: . $HOME/.asdf/asdf.sh && asdf global nodejs 18.4.0
+- name: Add NodeJS latest version 20
+  shell: . $HOME/.asdf/asdf.sh && asdf global nodejs 20.10.0
+
   become: yes
   become_user: "{{ user.name }}"
 
