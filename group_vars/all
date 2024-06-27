@@ -11,6 +11,7 @@ computer:
 
 apps:
   default:
+    - dbus
     - xorg-xsetroot
     - debugedit
     - fakeroot
