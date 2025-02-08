@@ -9,19 +9,27 @@ import Config.StartUpHooks as StartUp
 import Config.Layout
 import Config.ManageHook
 import Config.LogHook
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP (PP, def)
+import XMonad.Hooks.EwmhDesktops
+
+statusBarPP :: PP
+statusBarPP = def
 
 primary = Colors.fromXres $ Colors.fromXres "stz.primary"
 
+mySB = statusBarProp "polybar --reload -c ~/.config/polybar/config.ini" (pure statusBarPP)
+
 main = do
  export
- xmproc <- spawnPipe "xmobar"
- xmonad $ def
+ xmproc <- spawnPipe "polybar --reload -c ~/.config/polybar/config.ini"
+ xmonad . ewmhFullscreen . ewmh . withEasySB mySB defToggleStrutsKey $ def
   { terminal                     = "urxvt"
   , modMask                      = mod4Mask
   , borderWidth                  = 2
   , focusedBorderColor           = primary
   , startupHook                  = StartUp.hooks
   , manageHook                   = myManageHook
+  , workspaces                   = ["one", "two", "three", "four", "five"]
   , layoutHook                   = avoidStruts $ myLayout
-  , logHook                      = myLogHook xmproc
   } `additionalKeysP` Cfg.keyMappings `additionalKeys` Cfg.myMouseKeys

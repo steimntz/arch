@@ -56,6 +56,16 @@ apps:
     - xdotool
     - less
     - debugedit
+    - picom
+    - w3m
+    - ranger
+    - ffmpegthumbnailer
+    - polybar
+    - ripgrep
+    - docker-compose
+    - adobe-source-han-sans-cn-fonts
+    
+>>>>>>> polybar
 firefox:
   extensions:
     - url: https://github.com/akhodakivskiy/VimFx/releases/download/v0.20.10/VimFx.xpi

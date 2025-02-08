@@ -110,3 +110,6 @@ nmap <leader>x :action CloseContent<cr>
 " map k/j to next/prev tab
 nmap <S-k> gt
 nmap <S-j> gT
+set NERDTree
+
+nmap <leader>p :NERDTreeToggle<CR>
