@@ -53,9 +53,9 @@ apps:
     - buildah
     - podman
     - fuse-overlayfs
-    - autocutsel
     - xdotool
-    
+    - less
+    - debugedit
 firefox:
   extensions:
     - url: https://github.com/akhodakivskiy/VimFx/releases/download/v0.20.10/VimFx.xpi
