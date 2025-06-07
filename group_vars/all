@@ -7,31 +7,23 @@ sdkman_script_install_url: http://get.sdkman.io
 
 computer:
   gpu:
-    - xf86-video-ati
+    - nvidia
 
 apps:
   default:
     - fakeroot
-    - feh
-    - rxvt-unicode
-    - rxvt-unicode-terminfo
     - zip
     - unzip
     - pulseaudio
     - pulseaudio-alsa
     - alsa-utils
-    - dzen2
-    - xorg-xrandr
     - pavucontrol
     - kubectl
-    - xorg-xinput
     - openssh
     - peek
     - jq
-    - scrot
     - cups
     - ghostscript
-    - xscreensaver
     - dmenu
     - libx264
     - ffmpeg
@@ -40,7 +32,6 @@ apps:
     - numlockx
     - powerline
     - powerline-fonts
-    - urxvt-perls
     - tmux
     - vlc
     - gst-plugins-ugly
@@ -50,20 +41,18 @@ apps:
     - gimp
     - inkscape
     - playerctl
-    - buildah
-    - podman
     - fuse-overlayfs
-    - xdotool
     - less
     - debugedit
     - picom
     - w3m
     - ranger
     - ffmpegthumbnailer
-    - polybar
     - ripgrep
     - docker-compose
     - adobe-source-han-sans-cn-fonts
+    - grim
+    - slurp
     
 firefox:
   extensions:

@@ -10,7 +10,7 @@
     - { role: asdf,     tags: ['everything', 'never', 'asdf'] }
     - { role: vim,      tags: ['everything', 'never', 'vim', 'osx'] }
     - { role: xdefault, tags: ['everything', 'never', 'xorgs'] }
-    - { role: xmonad,   tags: ['everything', 'never', 'gui'] }
+    - { role: hyprland, tags: ['everything', 'never', 'gui'] }
     - { role: scroll,   tags: ['everything', 'never', 'scroll'] }
     - { role: sdkman,   tags: ['everything', 'never', 'java']  }
     - { role: yay,      tags: ['everything', 'never', 'yay'] }

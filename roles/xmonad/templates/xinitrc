@@ -1,5 +1,0 @@
-numlockx &
-setxkbmap br
-xsetroot -cursor_name left_ptr
-xrdb ~/.Xdefaults
-exec xmonad

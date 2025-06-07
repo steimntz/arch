@@ -1,0 +1,19 @@
+---
+- name: install Hyprland.
+  pacman: name=hyprland state=present
+
+- name: make directory /home/{{ user.name }}/screenshots
+  file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }} group={{ user.name }} recurse=true
+
+- name: install driver
+  pacman: name={{ item }} state=present
+  with_items:
+    - "[{{ computer.gpu  }}]"
+
+- name: install utilities
+  pacman: 
+    pkg:
+      - hyprlock
+      - hyprpaper
+      - waybar
+    state: present
