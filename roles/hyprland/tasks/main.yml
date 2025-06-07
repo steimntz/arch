@@ -8,6 +8,9 @@
 - name: copy my idea vim config
   template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }} group={{ user.name }}
 
+- name: copy my hyprland config
+  template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
+
 - name: install driver
   pacman: name={{ item }} state=present
   with_items:
@@ -19,4 +22,5 @@
       - hyprlock
       - hyprpaper
       - waybar
+      - kitty
     state: present
