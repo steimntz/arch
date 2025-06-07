@@ -1,15 +1,34 @@
 ---
-- name: install Hyprland.
-  pacman: name=hyprland state=present
+- name: "Create directory {{ item }}"  
+  file:  
+    path: "{{ item }}"  
+    state: directory  
+    owner: "{{ user.name }}"  
+    group: "{{ user.name }}"  
+    recurse: true  
+  loop:  
+    - "/home/{{ user.name }}/screenshots"  
+    - "/home/{{ user.name }}/.config/waybar"  
+    - "/home/{{ user.name }}/.config/hypr"  
 
-- name: make directory /home/{{ user.name }}/screenshots
-  file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }} group={{ user.name }} recurse=true state=directory
 
 - name: copy my idea vim config
   template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }} group={{ user.name }}
 
 - name: copy my hyprland config
   template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
+
+- name: make directory /home/{{ user.name }}/.config/waybar/
+  file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }} group={{ user.name }} recurse=true state=directory
+
+- name: install Hyprland.
+  pacman: name=hyprland state=present
+
+- name: copy my waybar config
+  template: src=waybar/config.jsonc dest=/home/{{ user.name }}/.config/waybar/config.jsonc owner={{ user.name }} group={{ user.name }}
+
+- name: copy my waybar style config
+  template: src=waybar/style.css dest=/home/{{ user.name }}/.config/waybar/style.css owner={{ user.name }} group={{ user.name }}
 
 - name: install driver
   pacman: name={{ item }} state=present
