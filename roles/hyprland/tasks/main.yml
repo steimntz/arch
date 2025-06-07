@@ -23,4 +23,5 @@
       - hyprpaper
       - waybar
       - kitty
+      - wofi
     state: present
