@@ -19,6 +19,9 @@
 - name: copy my hyprland config
   template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
 
+- name: copy my waybar stocks check
+  template: src=waybar/scripts/market.py dest=/home/{{ user.name }}/.config/waybar/scripts/market.py owner={{ user.name }} group={{ user.name }} mode=0755
+
 - name: copy my waybar checkupdates
   template: src=waybar/scripts/checkupdates dest=/home/{{ user.name }}/.config/waybar/scripts/checkupdates owner={{ user.name }} group={{ user.name }} mode=0755
 

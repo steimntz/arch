@@ -12,6 +12,7 @@
     ],
     "modules-right": [
         "custom/updates",
+        "custom/market",
         "tray",
         "pulseaudio",
         "network",
@@ -35,6 +36,13 @@
     "hyprland/window": {
         "format": "{}",
         "max-length": 35
+    },
+    "custom/market": {
+        "exec": "python3 ~/.config/waybar/scripts/market.py",
+        "return-type": "json",
+        "interval": 300,
+        "format": "{}",
+        "on-click": "python3 ~/.config/waybar/scripts/market.py"
     },
     "custom/updates": {
         "exec": "~/.config/waybar/scripts/checkupdates",

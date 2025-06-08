@@ -57,6 +57,10 @@ window#waybar {
     background-color: #333333;
 }
 
+/*
+ * Checkupdates
+ */
+
 #custom-updates {
     padding-left: 1em;
     padding-right: 1em;
@@ -77,3 +81,33 @@ window#waybar {
         color: #1e1e2e;  
     }  
 } 
+
+/*
+ * Stocks
+ */
+
+#custom-market {
+    background-color: #1e232A;
+    color: #FFFFFF;
+    padding: 0 12px;
+    margin: 0 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+#custom-market.market-up {
+    color: #FFFFFF;
+}
+
+#custom-market.market-down {
+    color: #333333;
+}
+
+#custom-market.market-neutral {
+    color: #FFFFFF;
+}
+
+#custom-market.market-error {
+    color: #333333;
+}
