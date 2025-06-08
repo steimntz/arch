@@ -47,4 +47,5 @@
       - waybar
       - kitty
       - wofi
+      - extra/pacman-contrib
     state: present
