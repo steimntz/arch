@@ -1,0 +1,14 @@
+[default]  
+font = Jetbrains Mono, FontAwesome, sans-serif  
+font_size = 14  
+background_color = #1e232A  
+text_color = #ffffff  
+margin = 5  
+padding = 10  
+border_size = 2  
+border_color = #333333  
+width = 300
+
+[urgent]
+background_color = #eb4d4b
+text_color = #ffffff

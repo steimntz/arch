@@ -11,7 +11,7 @@
     - "/home/{{ user.name }}/.config/waybar"  
     - "/home/{{ user.name }}/.config/waybar/scripts"  
     - "/home/{{ user.name }}/.config/hypr"  
-
+    - "/home/{{ user.name }}/.config/mako/config"
 
 - name: copy my idea vim config
   template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }} group={{ user.name }}
@@ -19,7 +19,7 @@
 - name: copy my hyprland config
   template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
 
-- name: copy my hyprland config
+- name: copy my waybar checkupdates
   template: src=waybar/scripts/checkupdates dest=/home/{{ user.name }}/.config/waybar/scripts/checkupdates owner={{ user.name }} group={{ user.name }} mode=0755
 
 - name: make directory /home/{{ user.name }}/.config/waybar/
@@ -33,6 +33,9 @@
 
 - name: copy my waybar style config
   template: src=waybar/style.css dest=/home/{{ user.name }}/.config/waybar/style.css owner={{ user.name }} group={{ user.name }}
+
+- name: copy my mako config
+  template: src=mako/config dest=/home/{{ user.name }}/.config/mako/config owner={{ user.name }} group={{ user.name }}
 
 - name: install driver
   pacman: name={{ item }} state=present
@@ -48,4 +51,5 @@
       - kitty
       - wofi
       - extra/pacman-contrib
+      - mako
     state: present
