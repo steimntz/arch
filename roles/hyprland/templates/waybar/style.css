@@ -57,3 +57,18 @@ window#waybar {
     background-color: #333333;
 }
 
+#custom-updates.uptodate {  
+    color: #a6e3a1;  
+}  
+  
+#custom-updates.update {  
+    color: #f38ba8;  
+    animation: blink 1s linear infinite alternate;  
+}  
+  
+@keyframes blink {  
+    to {  
+        background-color: #f38ba8;  
+        color: #1e1e2e;  
+    }  
+} 

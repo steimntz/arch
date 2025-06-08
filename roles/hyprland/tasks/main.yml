@@ -9,6 +9,7 @@
   loop:  
     - "/home/{{ user.name }}/screenshots"  
     - "/home/{{ user.name }}/.config/waybar"  
+    - "/home/{{ user.name }}/.config/waybar/scripts"  
     - "/home/{{ user.name }}/.config/hypr"  
 
 
@@ -17,6 +18,9 @@
 
 - name: copy my hyprland config
   template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
+
+- name: copy my hyprland config
+  template: src=waybar/scripts/checkupdates dest=/home/{{ user.name }}/.config/waybar/scripts/checkupdates owner={{ user.name }} group={{ user.name }} mode=0755
 
 - name: make directory /home/{{ user.name }}/.config/waybar/
   file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }} group={{ user.name }} recurse=true state=directory

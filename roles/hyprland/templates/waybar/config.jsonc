@@ -35,6 +35,14 @@
         "format": "{}",
         "max-length": 35
     },
+    "custom/updates": {
+        "exec": "~/.config/waybar/scripts/checkupdates",
+        "return-type": "json",
+        "interval": 300,
+        "tooltip": true,
+        "tooltip-format": "Click to update system",
+        "on-click": "kitty -e sudo pacman -Syu"
+    },
     "clock": {
         "format": "{:%H:%M  %d-%m-%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
