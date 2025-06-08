@@ -55,4 +55,6 @@
       - wofi
       - extra/pacman-contrib
       - mako
+      - grim
+      - slurp
     state: present
