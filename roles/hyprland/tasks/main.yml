@@ -57,4 +57,5 @@
       - mako
       - grim
       - slurp
+      - wf-recorder
     state: present

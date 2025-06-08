@@ -20,19 +20,12 @@ apps:
     - pavucontrol
     - kubectl
     - openssh
-    - peek
     - jq
     - cups
     - ghostscript
-    - dmenu
     - libx264
-    - ffmpeg
-    - ffmpegthumbs
-    - gifski
-    - numlockx
     - powerline
     - powerline-fonts
-    - tmux
     - vlc
     - gst-plugins-ugly
     - gst-plugins-good
@@ -51,8 +44,6 @@ apps:
     - ripgrep
     - docker-compose
     - adobe-source-han-sans-cn-fonts
-    - grim
-    - slurp
     
 firefox:
   extensions:
