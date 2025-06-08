@@ -57,6 +57,11 @@ window#waybar {
     background-color: #333333;
 }
 
+#custom-updates {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
 #custom-updates.uptodate {  
     color: #a6e3a1;  
 }  

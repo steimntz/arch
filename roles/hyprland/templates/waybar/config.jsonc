@@ -11,6 +11,7 @@
         "clock"
     ],
     "modules-right": [
+        "custom/updates",
         "tray",
         "pulseaudio",
         "network",
