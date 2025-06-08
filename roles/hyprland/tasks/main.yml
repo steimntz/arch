@@ -58,4 +58,5 @@
       - grim
       - slurp
       - wf-recorder
+      - wl-clipboard
     state: present
