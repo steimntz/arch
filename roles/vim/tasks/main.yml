@@ -37,6 +37,6 @@
   become_user: "{{ user.name }}"
 
 - name: Add NodeJS latest version as current version
-  shell: asdf set nodejs 18.4.0 chdir="/home/{{ user.name }}.vim/bundle/coc.nvim"
+  shell: asdf set nodejs 18.4.0 chdir="/home/{{ user.name }}/.vim/bundle/coc.nvim"
   become: yes
   become_user: "{{ user.name }}"
