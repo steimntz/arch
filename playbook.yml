@@ -8,8 +8,7 @@
     - { role: apps,     tags: ['everything', 'never', 'apps'] }
     - { role: zprezto,  tags: ['everything', 'never', 'zsh'] }
     - { role: asdf,     tags: ['everything', 'never', 'asdf'] }
-    - { role: vim,      tags: ['everything', 'never', 'vim', 'osx'] }
-    - { role: xdefault, tags: ['everything', 'never', 'xorgs'] }
+    - { role: vim,      tags: ['everything', 'never', 'vim'] }
     - { role: hyprland, tags: ['everything', 'never', 'gui'] }
     - { role: scroll,   tags: ['everything', 'never', 'scroll'] }
     - { role: sdkman,   tags: ['everything', 'never', 'java']  }

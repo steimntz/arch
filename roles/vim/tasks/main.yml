@@ -5,35 +5,24 @@
       - vim
       - the_silver_searcher
     state: present
-  when: ansible_os_family == "Archlinux"
-
-- name: Install Vim and dependencies
-  debug:
-    msg: Nothing here yet {{ansible_os_family}}
-  when: ansible_os_family == "Darwin"
-
-- name: Load a variable file based on the OS type, or a default if not found. Using free-form to specify the file.
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_os_family }}.yml"
 
 - name: Create .vim directory with permission
-  file: path={{home.directory}}/{{ user.name }}/.vim state=directory owner={{ user.name }} group={{ user.name }} recurse=true
+  file: path=/home/{{ user.name }}/{{ user.name }}/.vim state=directory owner={{ user.name }} group={{ user.name }} recurse=true
 
 - name: Create Vundle.vim directory with permission
-  file: path={{home.directory}}/{{ user.name }}/.vim/bundle/Vundle.vim state=directory owner={{ user.name }} recurse=true
+  file: path=/home/{{ user.name }}/{{ user.name }}/.vim/bundle/Vundle.vim state=directory owner={{ user.name }} recurse=true
 
 - name: Git clone Vundle
   git:
     repo: "https://github.com/VundleVim/Vundle.vim.git"
-    dest: "{{home.directory}}/{{ user.name }}/.vim/bundle/Vundle.vim"
+    dest: "/home/{{ user.name }}/{{ user.name }}/.vim/bundle/Vundle.vim"
     force: yes
     update: no
   become: yes
   become_user: "{{ user.name }}"
 
 - name: Configure .vimrc
-  template: src="vimrc" dest="{{home.directory}}/{{ user.name }}/.vimrc" owner={{ user.name }} group={{ user.name }}
+  template: src="vimrc" dest="/home/{{ user.name }}/{{ user.name }}/.vimrc" owner={{ user.name }} group={{ user.name }}
 
 - name: Run PluginInstall
   shell: echo | echo | vim +PluginInstall +qall &>/dev/null 
@@ -41,7 +30,7 @@
   become_user: "{{ user.name }}"
 
 - name: Run Yarn install
-  shell: yarn install chdir="{{home.directory}}/{{ user.name }}/.vim/bundle/coc.nvim"
+  shell: yarn install chdir="/home/{{ user.name }}//{{ user.name }}/.vim/bundle/coc.nvim"
   become: yes
   become_user: "{{ user.name }}"
 
@@ -51,6 +40,6 @@
   become_user: "{{ user.name }}"
 
 - name: Add NodeJS latest version as current version
-  shell: . $HOME/.asdf/asdf.sh && asdf local nodejs 18.4.0 chdir="{{home.directory}}/{{ user.name }}/.vim/bundle/coc.nvim"
+  shell: . $HOME/.asdf/asdf.sh && asdf local nodejs 18.4.0 chdir="/home/{{ user.name }}/{{ user.name }}/.vim/bundle/coc.nvim"
   become: yes
   become_user: "{{ user.name }}"
