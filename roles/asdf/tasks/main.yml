@@ -1,27 +1,38 @@
 ---
-- name: Git clone Asdf VM
-  git:
-    repo: "https://github.com/asdf-vm/asdf.git"
-    dest: "/home/{{ user.name }}/.asdf"
-    refspec: v0.10.0
-    force: yes
-    update: no
-  become: yes
-  become_user: "{{ user.name }}"
+- name: Download asdf binary tarball
+  get_url:
+    url: "https://github.com/asdf-vm/asdf/releases/download/v0.18.0/asdf-v0.18.0-linux-amd64.tar.gz"
+    dest: "/tmp/asdf-v0.18.0-linux-amd64.tar.gz"
+    mode: '0644'
+
+- name: Extract asdf binary to /usr/local/bin
+  unarchive:
+    src: "/tmp/asdf-v0.18.0-linux-amd64.tar.gz"
+    dest: "/usr/local/bin/"
+    remote_src: yes
+    extra_opts: ['--transform=s/asdf$/asdf/']
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: Clean up tarball
+  file:
+    path: "/tmp/asdf-v0.18.0-linux-amd64.tar.gz"
+    state: absent
 
 - name: Test for initialise completions
   shell: grep -c "ASDF_DIR" "/home/{{ user.name }}/.zshrc" || true
   register: test_completions
 
 - name: Test for nodejs plugin installation
-  shell: (. $HOME/.asdf/asdf.sh && asdf list) | grep "nodejs"
+  shell: asdf list | grep "nodejs"
   become: yes
   become_user: "{{ user.name }}"
   ignore_errors: yes
   register: test_nodejs_plugin
 
 - name: Test for node installation
-  shell: (. $HOME/.asdf/asdf.sh && node -v)
+  shell: node -v
   become: yes
   become_user: "{{ user.name }}"
   ignore_errors: yes
@@ -38,35 +49,27 @@
     dest: "/home/{{ user.name }}/.zshrc"
     insertafter: 'autoload -Uz compinit'
     content: |
-      . $HOME/.asdf/asdf.sh
       fpath=(${ASDF_DIR}/completions $fpath)
   when: test_completions.stdout == "0"
 
 - name: Add NodeJS plugin
-  shell: . $HOME/.asdf/asdf.sh && asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  shell: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   become: yes
   become_user: "{{ user.name }}"
   when: test_nodejs_plugin.stdout.find("nodejs") == -1
 
-- name: Add NodeJS version 18
-  shell: . $HOME/.asdf/asdf.sh && asdf install nodejs 18.4.0
-  become: yes
-  become_user: "{{ user.name }}"
-  ignore_errors: yes
-  when: test_node.failed == true
-
-- name: Add NodeJS latest version 18
-  shell: . $HOME/.asdf/asdf.sh && asdf global nodejs 18.4.0
+- name: Add Erland plugin
+  shell: asdf plugin add erland https://github.com/asdf-vm/asdf-erlang.git
   become: yes
   become_user: "{{ user.name }}"
 
-- name: Add Yarn
-  shell: . $HOME/.asdf/asdf.sh && npm install -g yarn
+- name: Add Elixir plugin
+  shell: asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
   become: yes
   become_user: "{{ user.name }}"
 
-- name: "Add other langs latest version"
-  shell: . $HOME/.asdf/asdf.sh && asdf install {{ item }} latest && asdf global {{ item }} latest
+- name: Add other langs latest version
+  shell: asdf install ref-{{ item }} latest
   ignore_errors: yes
   become: yes
   become_user: "{{ user.name }}"
@@ -74,3 +77,19 @@
   with_items:
     - erlang
     - elixir
+  args:
+    chdir: "/home/{{ user.name }}"
+
+- name: Add NodeJS version 18
+  shell: asdf install nodejs 18.4.0
+  become: yes
+  become_user: "{{ user.name }}"
+  ignore_errors: yes
+  when: test_node.failed == true
+
+- name: Add Yarn
+  shell: asdf set --home nodejs latest && npm install -g yarn
+  become: yes
+  become_user: "{{ user.name }}"
+  args:
+    chdir: "/home/{{ user.name }}"
