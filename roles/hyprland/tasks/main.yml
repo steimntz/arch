@@ -12,6 +12,7 @@
     - "/home/{{ user.name }}/.config/waybar/scripts"  
     - "/home/{{ user.name }}/.config/hypr"  
     - "/home/{{ user.name }}/.config/mako"
+    - "/home/{{ user.name }}/.config/kitty"
 
 - name: copy my idea vim config
   template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }} group={{ user.name }}
@@ -39,6 +40,12 @@
 
 - name: copy my mako config
   template: src=mako/config dest=/home/{{ user.name }}/.config/mako/config owner={{ user.name }} group={{ user.name }}
+
+- name: copy my kitty config
+  template: src=kitty/kitty.conf dest=/home/{{ user.name }}/.config/kitty/kitty.conf owner={{ user.name }} group={{ user.name }}
+
+- name: copy my kitty colors config
+  template: src=kitty/colors.conf dest=/home/{{ user.name }}/.config/kitty/colors.conf owner={{ user.name }} group={{ user.name }}
 
 - name: install driver
   pacman: name={{ item }} state=present

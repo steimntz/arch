@@ -51,8 +51,8 @@ def get_market_data():
         spx_arrow = "↗" if spx_change >= 0 else "↘"
         ibov_arrow = "↗" if ibov_change >= 0 else "↘"
         
-        spx_color = "#B0E0B0" if spx_change >= 0 else "#E0B0B0"
-        ibov_color = "#B0E0B0" if ibov_change >= 0 else "#E0B0B0"
+        spx_color = "#BAFFAA" if spx_change >= 0 else "#D65E75"
+        ibov_color = "#BAFFAA" if ibov_change >= 0 else "#D65E75"
         
         # Format output with individual colors
         spx_text = f"<span color='{spx_color}'>SPX {spx_arrow} {spx_current:.0f}</span>"
