@@ -10,6 +10,5 @@
     - { role: asdf,     tags: ['everything', 'never', 'asdf'] }
     - { role: vim,      tags: ['everything', 'never', 'vim'] }
     - { role: hyprland, tags: ['everything', 'never', 'gui'] }
-    - { role: sdkman,   tags: ['everything', 'never', 'java']  }
     - { role: yay,      tags: ['everything', 'never', 'yay'] }
     - { role: fonts,    tags: ['everything', 'never', 'fonts'] }
