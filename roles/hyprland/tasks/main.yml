@@ -29,6 +29,22 @@
 - name: make directory /home/{{ user.name }}/.config/waybar/
   file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }} group={{ user.name }} recurse=true state=directory
 
+- name: Create custom hyprland file if it does not exist
+  ansible.builtin.lineinfile:
+    path: /home/{{ user.name }}/.config/hypr/custom.conf
+    line: ''
+    create: true
+    state: present
+    owner: "{{ user.name }}"
+    group: "{{ user.name }}"
+    mode: '0644'
+  register: hyprlandCustom
+
+- name: Show hyprland custom status
+  debug:
+    msg: "The custom hyprland file was created"
+  when: hyprlandCustom.changed
+
 - name: install Hyprland.
   pacman: name=hyprland state=present
 
