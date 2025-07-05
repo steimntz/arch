@@ -13,9 +13,13 @@
     - "/home/{{ user.name }}/.config/hypr"  
     - "/home/{{ user.name }}/.config/mako"
     - "/home/{{ user.name }}/.config/kitty"
+    - "/home/{{ user.name }}/.config/ranger"
 
 - name: copy my idea vim config
   template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }} group={{ user.name }}
+
+- name: copy my ranger config
+  template: src=ranger/rc.conf dest=/home/{{ user.name }}/.config/ranger/rc.conf owner={{ user.name }} group={{ user.name }}
 
 - name: copy my hyprland config
   template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
