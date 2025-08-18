@@ -73,15 +73,14 @@
   ignore_errors: yes
   become: yes
   become_user: "{{ user.name }}"
-  ignore_errors: yes
   with_items:
     - erlang
     - elixir
   args:
     chdir: "/home/{{ user.name }}"
 
-- name: Add NodeJS version 18
-  shell: asdf install nodejs 18.4.0
+- name: Add NodeJS version latest
+  shell: asdf install nodejs latest
   become: yes
   become_user: "{{ user.name }}"
   ignore_errors: yes

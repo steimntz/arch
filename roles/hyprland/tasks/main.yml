@@ -70,7 +70,7 @@
 - name: install driver
   pacman: name={{ item }} state=present
   with_items:
-    - "[{{ computer.gpu  }}]"
+    - "{{ computer.gpu  }}"
 
 - name: install utilities
   pacman: 

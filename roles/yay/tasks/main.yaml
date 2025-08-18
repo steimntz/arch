@@ -8,10 +8,31 @@
   become: yes
   become_user: "{{ user.name }}"
 
-- name: Build and install yay
+- name: Check if yay package exists
+  stat:
+    path: "/home/{{ user.name }}/yay/yay-bin-*-x86_64.pkg.tar.zst"
+  register: yay_pkg
+
+- name: Build yay package if not exists
   command:
     chdir: "/home/{{ user.name }}/yay"
-    cmd: "makepkg -sfi --noconfirm"
-    creates: /usr/bin/yay
+    cmd: "makepkg -sf --noconfirm"
   become: yes
   become_user: "{{ user.name }}"
+  when: not yay_pkg.stat.exists
+
+- name: Find yay package file to install
+  find:
+    paths: "/home/{{ user.name }}/yay"
+    patterns: "yay-bin-*.pkg.tar.zst"
+    file_type: file
+  register: yay_pkg_files
+
+- name: Debug yay_pkg_files
+  debug:
+    var: yay_pkg_files
+
+- name: Install yay package with pacman -U (non-debug)
+  command: pacman -U --noconfirm "{{ yay_pkg_path }}"
+  become: yes
+  when: yay_pkg_files.matched > 0
