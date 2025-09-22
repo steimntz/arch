@@ -13,9 +13,13 @@
     - "/home/{{ user.name }}/.config/hypr"  
     - "/home/{{ user.name }}/.config/mako"
     - "/home/{{ user.name }}/.config/kitty"
+    - "/home/{{ user.name }}/.config/ranger"
 
 - name: copy my idea vim config
   template: src=ideavimrc dest=/home/{{ user.name }}/.ideavimrc owner={{ user.name }} group={{ user.name }}
+
+- name: copy my ranger config
+  template: src=ranger/rc.conf dest=/home/{{ user.name }}/.config/ranger/rc.conf owner={{ user.name }} group={{ user.name }}
 
 - name: copy my hyprland config
   template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
@@ -28,6 +32,22 @@
 
 - name: make directory /home/{{ user.name }}/.config/waybar/
   file: name=/home/{{ user.name }}/screenshots state=directory owner={{ user.name }} group={{ user.name }} recurse=true state=directory
+
+- name: Create custom hyprland file if it does not exist
+  ansible.builtin.lineinfile:
+    path: /home/{{ user.name }}/.config/hypr/custom.conf
+    line: ''
+    create: true
+    state: present
+    owner: "{{ user.name }}"
+    group: "{{ user.name }}"
+    mode: '0644'
+  register: hyprlandCustom
+
+- name: Show hyprland custom status
+  debug:
+    msg: "The custom hyprland file was created"
+  when: hyprlandCustom.changed
 
 - name: install Hyprland.
   pacman: name=hyprland state=present
@@ -50,7 +70,7 @@
 - name: install driver
   pacman: name={{ item }} state=present
   with_items:
-    - "[{{ computer.gpu  }}]"
+    - "{{ computer.gpu  }}"
 
 - name: install utilities
   pacman: 

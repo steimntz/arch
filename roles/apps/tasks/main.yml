@@ -2,4 +2,4 @@
 - name: Install default apps
   pacman: name="{{ item }}" state=present
   with_items:
-    - "[ {{ apps.default }} ]"
+    - "{{ apps.default }}"
