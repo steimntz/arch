@@ -21,10 +21,10 @@
   become_user: "{{ user.name }}"
   when: not yay_pkg.stat.exists
 
-- name: Find yay package file to install
+- name: Find yay package file to install (exclude debug)
   find:
     paths: "/home/{{ user.name }}/yay"
-    patterns: "yay-bin-*.pkg.tar.zst"
+    patterns: "yay-bin-[0-9]*-x86_64.pkg.tar.zst"
     file_type: file
   register: yay_pkg_files
 
@@ -38,7 +38,12 @@
   become: yes
   become_user: "{{ user.name }}"
 
-- name: Install yay package with pacman -U (non-debug)
-  command: pacman -U --noconfirm "{{ yay_pkg_path }}"
+- name: Install yay package with pacman -U (non-debug) with output
+  command: pacman -U --noconfirm {{ yay_pkg_path }}
   become: yes
-  when: yay_pkg_files.matched > 0
+  register: pacman_install
+  ignore_errors: yes
+
+- name: Show pacman install output
+  debug:
+    var: pacman_install.stdout_lines
