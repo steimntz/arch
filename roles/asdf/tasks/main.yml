@@ -58,8 +58,8 @@
   become_user: "{{ user.name }}"
   when: test_nodejs_plugin.stdout.find("nodejs") == -1
 
-- name: Add Erland plugin
-  shell: asdf plugin add erland https://github.com/asdf-vm/asdf-erlang.git
+- name: Add Erlang plugin
+  shell: asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
   become: yes
   become_user: "{{ user.name }}"
 
@@ -69,15 +69,43 @@
   become_user: "{{ user.name }}"
 
 - name: Add other langs latest version
-  shell: asdf install ref-{{ item }} latest
+  shell: asdf install {{ item }} latest
   ignore_errors: yes
   become: yes
   become_user: "{{ user.name }}"
   with_items:
     - erlang
-    - elixir
   args:
     chdir: "/home/{{ user.name }}"
+
+- name: Ensure asdf shims directory is in PATH in .zshrc
+  lineinfile:
+    path: "/home/{{ user.name }}/.zshrc"
+    line: 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"'
+    state: present
+    insertafter: EOF
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Create asdf completions directory
+  file:
+    path: "/home/{{ user.name }}/.asdf/completions"
+    state: directory
+    mode: '0755'
+    owner: "{{ user.name }}"
+    group: "{{ user.name }}"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Generate asdf zsh completion script
+  shell: asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
+  args:
+    executable: /bin/bash
+  environment:
+    HOME: "/home/{{ user.name }}"
+    USER: "{{ user.name }}"
+  become: yes
+  become_user: "{{ user.name }}"
 
 - name: Add NodeJS version latest
   shell: asdf install nodejs latest
@@ -88,6 +116,8 @@
 
 - name: Add Yarn
   shell: asdf set --home nodejs latest && npm install -g yarn
+  environment:
+    PATH: "/home/{{ user.name }}/.asdf/shims:{{ ansible_env.PATH }}"
   become: yes
   become_user: "{{ user.name }}"
   args:

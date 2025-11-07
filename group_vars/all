@@ -11,6 +11,8 @@ computer:
 
 apps:
   default:
+    - base-devel
+    - autoconf
     - zip
     - unzip
     - pulseaudio
