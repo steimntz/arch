@@ -32,6 +32,12 @@
   debug:
     var: yay_pkg_files
 
+- name: Set yay_pkg_path to the first found package file
+  set_fact:
+    yay_pkg_path: "{{ yay_pkg_files.files[0].path }}"
+  become: yes
+  become_user: "{{ user.name }}"
+
 - name: Install yay package with pacman -U (non-debug)
   command: pacman -U --noconfirm "{{ yay_pkg_path }}"
   become: yes
