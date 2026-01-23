@@ -47,3 +47,10 @@
 - name: Show pacman install output
   debug:
     var: pacman_install.stdout_lines
+
+- name: Install intellij-idea-ultimate-edition AUR package with yay
+  shell: yay --noconfirm -S intellij-idea-ultimate-edition
+  become: yes
+  become_user: "{{ user.name }}"
+  args:
+    creates: "/usr/share/intellij-idea-ultimate" 
