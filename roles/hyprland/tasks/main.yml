@@ -67,11 +67,6 @@
 - name: copy my kitty colors config
   template: src=kitty/colors.conf dest=/home/{{ user.name }}/.config/kitty/colors.conf owner={{ user.name }} group={{ user.name }}
 
-- name: install driver
-  pacman: name={{ item }} state=present
-  with_items:
-    - "{{ computer.gpu  }}"
-
 - name: install utilities
   pacman: 
     pkg:
