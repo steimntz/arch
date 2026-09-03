@@ -1,5 +1,5 @@
 ---
-- name: "Create directory {{ item }}"  
+- name: "Create directories"  
   file:  
     path: "{{ item }}"  
     state: directory  
@@ -22,7 +22,7 @@
   template: src=ranger/rc.conf dest=/home/{{ user.name }}/.config/ranger/rc.conf owner={{ user.name }} group={{ user.name }}
 
 - name: copy my hyprland config
-  template: src=hypr/hyprland.conf dest=/home/{{ user.name }}/.config/hypr/hyprland.conf owner={{ user.name }} group={{ user.name }}
+  template: src=hypr/hyprland.lua dest=/home/{{ user.name }}/.config/hypr/hyprland.lua owner={{ user.name }} group={{ user.name }}
 
 - name: copy my waybar stocks check
   template: src=waybar/scripts/market.py dest=/home/{{ user.name }}/.config/waybar/scripts/market.py owner={{ user.name }} group={{ user.name }} mode=0755
