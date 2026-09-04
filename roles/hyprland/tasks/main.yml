@@ -70,6 +70,11 @@
 - name: install utilities
   pacman: 
     pkg:
+      - nvidia-dkms
+      - nvidia-utils
+      - lib32-nvidia-utils
+      - egl-wayland
+      - libva-nvidia-driver
       - hyprlock
       - hyprpaper
       - waybar

@@ -234,7 +234,12 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
-hl.bind("CONTROL + F11", hl.dsp.exec_cmd("grim -g \"$(slurp)\" ~/screenshots/$(date +'%Y%m%d_%H%M%S_grim_selection.png'"))
+hl.bind(
+    "CTRL + F11",
+    hl.dsp.exec_cmd(
+        "grim -g \"$(slurp)\" ~/screenshots/$(date +'%Y%m%d_%H%M%S_grim_selection.png')"
+    )
+)
 
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({mode = "fullscreen", action="toggle"}))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
