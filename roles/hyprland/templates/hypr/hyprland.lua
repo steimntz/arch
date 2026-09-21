@@ -241,6 +241,8 @@ hl.bind(
     )
 )
 
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | satty -f - --copy-command wl-copy -o "~/screenshots/%Y%m%d_%H%M%S_annotation.png"'))
+
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({mode = "fullscreen", action="toggle"}))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
 
